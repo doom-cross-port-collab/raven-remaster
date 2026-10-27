@@ -163,6 +163,333 @@
 | RANDOMACTIVESOUND   | New      | actor will randomly play its seesound instead of its activesound, 50% of the time (previously hardcoded to Wizard/Bishop/Pig) |
 | NOFLYOVER           | New      | actors with this flag will not attempt to fly over each other even if the PASSMOBJ flag is set (previously hardcoded to Gargoyle/Wizard) |
 
+### Codepointer
+
+| Name                   | Origin            | Description |
+|------------------------|-------------------|-------------|
+| A_Look                 | Vanilla (Common)  | |
+| A_Chase                | Vanilla (Common)  | |
+| A_FaceTarget           | Vanilla (Common)  | |
+| A_Scream               | Vanilla (Common)  | |
+| A_Pain                 | Vanilla (Common)  | |
+| A_FreeTargMobj         | Vanilla (Common)  | |
+| A_RestoreSpecialThing1 | Vanilla (Common)  | |
+| A_RestoreSpecialThing2 | Vanilla (Common)  | |
+| A_RestoreArtifact      | Vanilla (Common)  | |
+| A_HideThing            | Vanilla (Common)  | |
+| A_UnHideThing          | Vanilla (Common)  | |
+| A_NoBlocking           | Vanilla (Common)  | |
+| A_AddPlayerCorpse      | Vanilla (Common)  | |
+| A_SkullPop             | Vanilla (Common)  | |
+| A_CheckBurnGone        | Vanilla (Common)  | |
+| A_CheckSkullFloor      | Vanilla (Common)  | |
+| A_CheckSkullDone       | Vanilla (Common)  | |
+| A_ESound               | Modified          | Now plays the actor's 'activesound', instead of doing a hardcoded branch based on mobj type. |
+| A_PlayerPain           | Vanilla (Heretic) | |
+| A_PlayerScream         | Vanilla (Heretic) | |
+| A_BossDeath            | Vanilla (Heretic) | |
+| A_Explode              | Modified          | Branches based on actor's behavior field, instead of its mobjtype |
+| A_PodPain              | Vanilla (Heretic) | |
+| A_RemovePod            | Vanilla (Heretic) | |
+| A_MakePod              | Vanilla (Heretic) | |
+| A_InitKeyGizmo         | Vanilla (Heretic) | |
+| A_VolcanoSet           | Vanilla (Heretic) | |
+| A_VolcanoBlast         | Vanilla (Heretic) | |
+| A_BeastPuff            | Vanilla (Heretic) | |
+| A_VolcBallImpact       | Vanilla (Heretic) | |
+| A_SpawnTeleGlitter     | Vanilla (Heretic) | |
+| A_SpawnTeleGlitter2    | Vanilla (Heretic) | |
+| A_AccTeleGlitter       | Vanilla (Heretic) | |
+| A_SpawnRippers         | Vanilla (Heretic) | |
+| A_MacePL1Check         | Vanilla (Heretic) | |
+| A_MaceBallImpact       | Vanilla (Heretic) | |
+| A_MaceBallImpact2      | Vanilla (Heretic) | |
+| A_DeathBallImpact      | Vanilla (Heretic) | |
+| A_SkullRodPL2Seek      | Vanilla (Heretic) | |
+| A_AddPlayerRain        | Vanilla (Heretic) | |
+| A_HideInCeiling        | Vanilla (Heretic) | |
+| A_SkullRodStorm        | Vanilla (Heretic) | |
+| A_RainImpact           | Vanilla (Heretic) | |
+| A_PhoenixPuff          | Vanilla (Heretic) | |
+| A_FlameEnd             | Vanilla (Heretic) | |
+| A_FloatPuff            | Vanilla (Heretic) | |
+| A_BoltSpark            | Vanilla (Heretic) | |
+| A_FlameSnd             | Vanilla (Heretic) | |
+| A_Feathers             | Vanilla (Heretic) | |
+| A_ChicLook             | Vanilla (Heretic) | |
+| A_ChicChase            | Vanilla (Heretic) | |
+| A_ChicPain             | Vanilla (Heretic) | |
+| A_ChicAttack           | Vanilla (Heretic) | |
+| A_MummyAttack          | Vanilla (Heretic) | |
+| A_MummyAttack2         | Vanilla (Heretic) | |
+| A_MummySoul            | Vanilla (Heretic) | |
+| A_ContMobjSound        | Vanilla (Heretic) | |
+| A_MummyFX1Seek         | Vanilla (Heretic) | |
+| A_BeastAttack          | Vanilla (Heretic) | |
+| A_SnakeAttack          | Vanilla (Heretic) | |
+| A_SnakeAttack2         | Vanilla (Heretic) | |
+| A_LichAttack           | Vanilla (Heretic) | Named A_HeadAttack in vanilla; renamed to avoid ambiguity with Cacodemon attack function (matches GZDoom's naming) |
+| A_HeadIceImpact        | Vanilla (Heretic) | |
+| A_HeadFireGrow         | Vanilla (Heretic) | |
+| A_WhirlwindSeek        | Vanilla (Heretic) | |
+| A_ClinkAttack          | Vanilla (Heretic) | |
+| A_WizAtk1              | Vanilla (Heretic) | |
+| A_WizAtk2              | Vanilla (Heretic) | |
+| A_WizAtk3              | Vanilla (Heretic) | |
+| A_GhostOff             | Vanilla (Heretic) | |
+| A_ImpMeAttack          | Vanilla (Heretic) | |
+| A_ImpMsAttack          | Vanilla (Heretic) | |
+| A_ImpMsAttack2         | Vanilla (Heretic) | |
+| A_ImpDeath             | Vanilla (Heretic) | |
+| A_ImpXDeath1           | Vanilla (Heretic) | |
+| A_ImpXDeath2           | Vanilla (Heretic) | |
+| A_ImpExplode           | Vanilla (Heretic) | |
+| A_KnightAttack         | Vanilla (Heretic) | |
+| A_DripBlood            | Vanilla (Heretic) | |
+| A_Sor1Chase            | Vanilla (Heretic) | |
+| A_Sor1Pain             | Vanilla (Heretic) | |
+| A_Srcr1Attack          | Vanilla (Heretic) | |
+| A_SorZap               | Vanilla (Heretic) | |
+| A_SorcererRise         | Vanilla (Heretic) | |
+| A_SorRise              | Vanilla (Heretic) | |
+| A_SorSightSnd          | Vanilla (Heretic) | |
+| A_Srcr2Decide          | Vanilla (Heretic) | |
+| A_Srcr2Attack          | Vanilla (Heretic) | |
+| A_Sor2DthInit          | Vanilla (Heretic) | |
+| A_SorDSph              | Vanilla (Heretic) | |
+| A_Sor2DthLoop          | Vanilla (Heretic) | |
+| A_SorDExp              | Vanilla (Heretic) | |
+| A_SorDBon              | Vanilla (Heretic) | |
+| A_BlueSpark            | Vanilla (Heretic) | |
+| A_GenWizard            | Vanilla (Heretic) | |
+| A_MinotaurAtk1         | Vanilla (Heretic) | |
+| A_MinotaurDecide       | Vanilla (Heretic) | |
+| A_MinotaurAtk2         | Vanilla (Heretic) | |
+| A_MinotaurAtk3         | Vanilla (Heretic) | |
+| A_MinotaurCharge       | Vanilla (Heretic) | |
+| A_MntrFloorFire        | Vanilla (Heretic) | |
+| A_FlameCheck           | Vanilla (Hexen)   | |
+| A_Summon               | Vanilla (Hexen)   | |
+| A_ThrustInitUp         | Vanilla (Hexen)   | |
+| A_ThrustInitDn         | Vanilla (Hexen)   | |
+| A_ThrustRaise          | Vanilla (Hexen)   | |
+| A_ThrustBlock          | Vanilla (Hexen)   | |
+| A_ThrustImpale         | Vanilla (Hexen)   | |
+| A_ThrustLower          | Vanilla (Hexen)   | |
+| A_TeloSpawnC           | Vanilla (Hexen)   | |
+| A_TeloSpawnB           | Vanilla (Hexen)   | |
+| A_TeloSpawnA           | Vanilla (Hexen)   | |
+| A_TeloSpawnD           | Vanilla (Hexen)   | |
+| A_CheckTeleRing        | Vanilla (Hexen)   | |
+| A_FogSpawn             | Vanilla (Hexen)   | |
+| A_FogMove              | Vanilla (Hexen)   | |
+| A_Quake                | Vanilla (Hexen)   | |
+| A_PoisonBagInit        | Vanilla (Hexen)   | |
+| A_PoisonBagDamage      | Vanilla (Hexen)   | |
+| A_PoisonBagCheck       | Vanilla (Hexen)   | |
+| A_CheckThrowBomb       | Vanilla (Hexen)   | |
+| A_NoGravity            | Vanilla (Hexen)   | |
+| A_PotteryExplode       | Vanilla (Hexen)   | |
+| A_PotteryChooseBit     | Vanilla (Hexen)   | |
+| A_PotteryCheck         | Vanilla (Hexen)   | |
+| A_CorpseBloodDrip      | Vanilla (Hexen)   | |
+| A_CorpseExplode        | Vanilla (Hexen)   | |
+| A_LeafSpawn            | Vanilla (Hexen)   | |
+| A_LeafThrust           | Vanilla (Hexen)   | |
+| A_LeafCheck            | Vanilla (Hexen)   | |
+| A_BridgeInit           | Vanilla (Hexen)   | |
+| A_BridgeOrbit          | Vanilla (Hexen)   | |
+| A_TreeDeath            | Vanilla (Hexen)   | |
+| A_PoisonShroom         | Vanilla (Hexen)   | |
+| A_SoAExplode           | Vanilla (Hexen)   | |
+| A_BellReset1           | Vanilla (Hexen)   | |
+| A_BellReset2           | Vanilla (Hexen)   | |
+| A_FSwordFlames         | Vanilla (Hexen)   | |
+| A_CStaffMissileSlither | Vanilla (Hexen)   | |
+| A_CFlameRotate         | Vanilla (Hexen)   | |
+| A_CFlamePuff           | Vanilla (Hexen)   | |
+| A_CFlameMissile        | Vanilla (Hexen)   | |
+| A_CHolySeek            | Vanilla (Hexen)   | |
+| A_CHolyCheckScream     | Vanilla (Hexen)   | |
+| A_CHolyTail            | Vanilla (Hexen)   | |
+| A_CHolySpawnPuff       | Vanilla (Hexen)   | |
+| A_CHolyAttack2         | Vanilla (Hexen)   | |
+| A_LightningZap         | Vanilla (Hexen)   | |
+| A_LightningClip        | Vanilla (Hexen)   | |
+| A_LightningRemove      | Vanilla (Hexen)   | |
+| A_LastZap              | Vanilla (Hexen)   | |
+| A_ZapMimic             | Vanilla (Hexen)   | |
+| A_MStaffWeave          | Vanilla (Hexen)   | |
+| A_MStaffTrack          | Vanilla (Hexen)   | |
+| A_SnoutAttack          | Vanilla (Hexen)   | |
+| A_ShedShard            | Vanilla (Hexen)   | |
+| A_FreezeDeath          | Vanilla (Hexen)   | |
+| A_FreezeDeathChunks    | Vanilla (Hexen)   | |
+| A_SpeedFade            | Vanilla (Hexen)   | |
+| A_IceSetTics           | Vanilla (Hexen)   | |
+| A_IceCheckHeadDone     | Vanilla (Hexen)   | |
+| A_PigPain              | Vanilla (Hexen)   | |
+| A_PigLook              | Vanilla (Hexen)   | |
+| A_PigChase             | Vanilla (Hexen)   | |
+| A_PigAttack            | Vanilla (Hexen)   | |
+| A_QueueCorpse          | Vanilla (Hexen)   | |
+| A_CentaurAttack        | Vanilla (Hexen)   | |
+| A_CentaurAttack2       | Vanilla (Hexen)   | |
+| A_SetReflective        | Vanilla (Hexen)   | |
+| A_CentaurDefend        | Vanilla (Hexen)   | |
+| A_UnSetReflective      | Vanilla (Hexen)   | |
+| A_CentaurDropStuff     | Vanilla (Hexen)   | |
+| A_CheckFloor           | Vanilla (Hexen)   | |
+| A_DemonAttack1         | Vanilla (Hexen)   | |
+| A_DemonAttack2         | Vanilla (Hexen)   | |
+| A_DemonDeath           | Vanilla (Hexen)   | |
+| A_Demon2Death          | Vanilla (Hexen)   | |
+| A_WraithRaiseInit      | Vanilla (Hexen)   | |
+| A_WraithRaise          | Vanilla (Hexen)   | |
+| A_WraithInit           | Vanilla (Hexen)   | |
+| A_WraithLook           | Vanilla (Hexen)   | |
+| A_WraithChase          | Vanilla (Hexen)   | |
+| A_WraithFX3            | Vanilla (Hexen)   | |
+| A_WraithMelee          | Vanilla (Hexen)   | |
+| A_WraithMissile        | Vanilla (Hexen)   | |
+| A_WraithFX2            | Vanilla (Hexen)   | |
+| A_MinotaurFade1        | Vanilla (Hexen)   | |
+| A_MinotaurFade2        | Vanilla (Hexen)   | |
+| A_MinotaurLook         | Vanilla (Hexen)   | |
+| A_MinotaurChase        | Vanilla (Hexen)   | |
+| A_MinotaurRoam         | Vanilla (Hexen)   | |
+| A_MinotaurAtk1         | Vanilla (Hexen)   | |
+| A_MinotaurDecide       | Vanilla (Hexen)   | |
+| A_MinotaurAtk2         | Vanilla (Hexen)   | |
+| A_MinotaurAtk3         | Vanilla (Hexen)   | |
+| A_MinotaurCharge       | Vanilla (Hexen)   | |
+| A_SmokePuffExit        | Vanilla (Hexen)   | |
+| A_MinotaurFade0        | Vanilla (Hexen)   | |
+| A_MntrFloorFire        | Vanilla (Hexen)   | |
+| A_SerpentChase         | Vanilla (Hexen)   | |
+| A_SerpentHumpDecide    | Vanilla (Hexen)   | |
+| A_SerpentUnHide        | Vanilla (Hexen)   | |
+| A_SerpentRaiseHump     | Vanilla (Hexen)   | |
+| A_SerpentLowerHump     | Vanilla (Hexen)   | |
+| A_SerpentHide          | Vanilla (Hexen)   | |
+| A_SerpentBirthScream   | Vanilla (Hexen)   | |
+| A_SetShootable         | Vanilla (Hexen)   | |
+| A_SerpentCheckForAttack| Vanilla (Hexen)   | |
+| A_UnSetShootable       | Vanilla (Hexen)   | |
+| A_SerpentDiveSound     | Vanilla (Hexen)   | |
+| A_SerpentWalk          | Vanilla (Hexen)   | |
+| A_SerpentChooseAttack  | Vanilla (Hexen)   | |
+| A_SerpentMeleeAttack   | Vanilla (Hexen)   | |
+| A_SerpentMissileAttack | Vanilla (Hexen)   | |
+| A_SerpentHeadPop       | Vanilla (Hexen)   | |
+| A_SerpentSpawnGibs     | Vanilla (Hexen)   | |
+| A_SerpentHeadCheck     | Vanilla (Hexen)   | |
+| A_FloatGib             | Vanilla (Hexen)   | |
+| A_DelayGib             | Vanilla (Hexen)   | |
+| A_SinkGib              | Vanilla (Hexen)   | |
+| A_BishopDecide         | Vanilla (Hexen)   | |
+| A_BishopDoBlur         | Vanilla (Hexen)   | |
+| A_BishopSpawnBlur      | Vanilla (Hexen)   | |
+| A_BishopChase          | Vanilla (Hexen)   | |
+| A_BishopAttack         | Vanilla (Hexen)   | |
+| A_BishopAttack2        | Vanilla (Hexen)   | |
+| A_BishopPainBlur       | Vanilla (Hexen)   | |
+| A_BishopPuff           | Vanilla (Hexen)   | |
+| A_SetAltShadow         | Vanilla (Hexen)   | |
+| A_BishopMissileWeave   | Vanilla (Hexen)   | |
+| A_BishopMissileSeek    | Vanilla (Hexen)   | |
+| A_DragonInitFlight     | Vanilla (Hexen)   | |
+| A_DragonFlap           | Vanilla (Hexen)   | |
+| A_DragonFlight         | Vanilla (Hexen)   | |
+| A_DragonAttack         | Vanilla (Hexen)   | |
+| A_DragonPain           | Vanilla (Hexen)   | |
+| A_DragonCheckCrash     | Vanilla (Hexen)   | |
+| A_DragonFX2            | Vanilla (Hexen)   | |
+| A_EttinAttack          | Vanilla (Hexen)   | |
+| A_DropMace             | Vanilla (Hexen)   | |
+| A_FiredRocks           | Vanilla (Hexen)   | |
+| A_UnSetInvulnerable    | Vanilla (Hexen)   | |
+| A_FiredChase           | Vanilla (Hexen)   | |
+| A_FiredAttack          | Vanilla (Hexen)   | |
+| A_FiredSplotch         | Vanilla (Hexen)   | |
+| A_SmBounce             | Vanilla (Hexen)   | |
+| A_IceGuyLook           | Vanilla (Hexen)   | |
+| A_IceGuyChase          | Vanilla (Hexen)   | |
+| A_IceGuyAttack         | Vanilla (Hexen)   | |
+| A_IceGuyDie            | Vanilla (Hexen)   | |
+| A_IceGuyMissilePuff    | Vanilla (Hexen)   | |
+| A_IceGuyMissileExplode | Vanilla (Hexen)   | |
+| A_ClassBossHealth      | Vanilla (Hexen)   | |
+| A_FastChase            | Vanilla (Hexen)   | |
+| A_FighterAttack        | Vanilla (Hexen)   | |
+| A_ClericAttack         | Vanilla (Hexen)   | |
+| A_MageAttack           | Vanilla (Hexen)   | |
+| A_SorcSpinBalls        | Vanilla (Hexen)   | |
+| A_SpeedBalls           | Vanilla (Hexen)   | |
+| A_SpawnFizzle          | Vanilla (Hexen)   | |
+| A_SorcBossAttack       | Vanilla (Hexen)   | |
+| A_SorcBallOrbit        | Vanilla (Hexen)   | |
+| A_SorcBallPop          | Vanilla (Hexen)   | |
+| A_BounceCheck          | Vanilla (Hexen)   | |
+| A_SorcFX1Seek          | Vanilla (Hexen)   | |
+| A_SorcFX2Split         | Vanilla (Hexen)   | |
+| A_SorcFX2Orbit         | Vanilla (Hexen)   | |
+| A_SorcererBishopEntry  | Vanilla (Hexen)   | |
+| A_SpawnBishop          | Vanilla (Hexen)   | |
+| A_SorcFX4Check         | Vanilla (Hexen)   | |
+| A_KoraxStep2           | Vanilla (Hexen)   | |
+| A_KoraxChase           | Vanilla (Hexen)   | |
+| A_KoraxStep            | Vanilla (Hexen)   | |
+| A_KoraxDecide          | Vanilla (Hexen)   | |
+| A_KoraxMissile         | Vanilla (Hexen)   | |
+| A_KoraxCommand         | Vanilla (Hexen)   | |
+| A_KoraxBonePop         | Vanilla (Hexen)   | |
+| A_KSpiritRoam          | Vanilla (Hexen)   | |
+| A_KBoltRaise           | Vanilla (Hexen)   | |
+| A_KBolt                | Vanilla (Hexen)   | |
+| A_BatSpawnInit         | Vanilla (Hexen)   | |
+| A_BatSpawn             | Vanilla (Hexen)   | |
+| A_BatMove              | Vanilla (Hexen)   | |
+| A_FlyTarget            | New               | Likely identical to GZDoom's A_FlySearch; name taken from original source code |
+| A_FlyChase             | New               | Likely identical to GZDoom's A_FlyBuzz; name taken from original source code |
+
+
+## Codepointers EX
+
+| Name                     | Origin | Description |
+|--------------------------|--------|-------------|
+| A_PlaySound              |        | |
+| A_FaceTargetSound        |        | |
+| A_RandomJump             |        | |
+| A_SpawnObject            |        | |
+| A_MonsterProjectile      |        | |
+| A_MonsterBulletAttack    |        | |
+| A_MonsterMeleeAttack     |        | |
+| A_MonsterComboAttack     |        | |
+| A_SpawnMinion            |        | |
+| A_RadiusDamage           |        | |
+| A_SeekTracer             |        | |
+| A_FindTracer             |        | |
+| A_ClearTracer            |        | |
+| A_MissileExplode         |        | |
+| A_MissileCountdown       |        | |
+| A_DeathBallBounceEX      |        | |
+| A_TempestChain           |        | |
+| A_TempestSpray           |        | |
+| A_KnightAttackEX         |        | |
+| A_ClinkRushEX            |        | |
+| A_ClinkAttackEX          |        | |
+| A_MinotaurMeleeEX        |        | |
+| A_TrollChargeStart       |        | |
+| A_TrollCharge            |        | |
+| A_SuperDemonAttack1      |        | |
+| A_SuperDemonAttack2      |        | |
+| A_ShedShardEX            |        | |
+| A_CentaurEXGuardRaise    |        | |
+| A_CentaurEXGuardHold     |        | |
+| A_CentaurEXGuardLower    |        | |
+| A_CentaurAttack2EX       |        | |
+
 ## States
 
 ### Properties
@@ -265,6 +592,18 @@
 | AUTOUSEHEALTH  | New    | Allow auto-use health |
 | CHICKENTWITCH  | New    | Does involuntary chicken actions, such as twitching, jumping, and making noise. |
 
+### Codepointers EX
+
+| Name                    | Origin | Description |
+|-------------------------|--------|-------------|
+| A_InvulnStandardStart   |        | |
+| A_InvulnStandardEnd     |        | |
+| A_InvulnPhasedTick      |        | |
+| A_InvulnPhasedDraw      |        | PlayerVis |
+| A_InvulnPhasedEnd       |        | |
+| A_InvulnReflectiveStart |        | |
+| A_InvulnReflectiveEnd   |        | |
+
 ## Weapon
 
 ### Properties
@@ -320,6 +659,89 @@
 | INTERPOLATE     | New      | interpolate weapon x/y offsets (misc1/misc2 fields) on all states (unless said state has NOINTERPOLATION on it) -- basically a shortcut to enable interpolation by default without redefining everything |
 | NODMGTHRUST     | New      | [XA] TODO: this is a silly partial duplicate of MF_NOTHRUST; I need to remove this Kex-side :P |
 | AUTOAIMFARTHEST | New      | autoaim prioritizes the farthest enemy, rather than the nearest |
+
+### Codepointers
+
+| Name                 | Origin            | Description |
+|----------------------|-------------------|-|
+| A_Light0             | Vanilla (Common)  | |
+| A_Light1             | Vanilla (Common)  | |
+| A_Light2             | Vanilla (Common)  | |
+| A_WeaponReady        | Vanilla (Common)  | |
+| A_Lower              | Vanilla (Common)  | |
+| A_Raise              | Vanilla (Common)  | |
+| A_ReFire             | Vanilla (Common)  | |
+| A_StaffAttackPL1     | Vanilla (Heretic) | |
+| A_StaffAttackPL2     | Vanilla (Heretic) | |
+| A_BeakReady          | Vanilla (Heretic) | |
+| A_BeakRaise          | Vanilla (Heretic) | |
+| A_BeakAttackPL1      | Vanilla (Heretic) | |
+| A_BeakAttackPL2      | Vanilla (Heretic) | |
+| A_GauntletAttack     | Vanilla (Heretic) | |
+| A_FireBlasterPL1     | Vanilla (Heretic) | |
+| A_FireBlasterPL2     | Vanilla (Heretic) | |
+| A_FireMacePL1        | Vanilla (Heretic) | |
+| A_FireMacePL2        | Vanilla (Heretic) | |
+| A_FireSkullRodPL1    | Vanilla (Heretic) | |
+| A_FireSkullRodPL2    | Vanilla (Heretic) | |
+| A_FireGoldWandPL1    | Vanilla (Heretic) | |
+| A_FireGoldWandPL2    | Vanilla (Heretic) | |
+| A_FirePhoenixPL1     | Vanilla (Heretic) | |
+| A_InitPhoenixPL2     | Vanilla (Heretic) | |
+| A_FirePhoenixPL2     | Vanilla (Heretic) | |
+| A_ShutdownPhoenixPL2 | Vanilla (Heretic) | |
+| A_FireCrossbowPL1    | Vanilla (Heretic) | |
+| A_FireCrossbowPL2    | Vanilla (Heretic) | |
+| A_FPunchAttack       | Vanilla (Hexen)   | |
+| A_FAxeCheckUp        | New               | Identical to GZDoom's function of the same name. |
+| A_FAxeCheckUpG       | New               | Identical to GZDoom's function of the same name. |
+| A_FAxeCheckReady     | New               | Identical to GZDoom's function of the same name. |
+| A_FAxeCheckReadyG    | New               | Identical to GZDoom's function of the same name. |
+| A_FAxeCheckAtk       | New               | Identical to GZDoom's function of the same name. |
+| A_FAxeAttack         | Vanilla (Hexen)   | |
+| A_SnoutAttack        | Vanilla (Hexen)   | |
+| A_FHammerAttack      | Vanilla (Hexen)   | |
+| A_FHammerThrow       | Vanilla (Hexen)   | |
+| A_FSwordAttack       | Vanilla (Hexen)   | |
+| A_CMaceAttack        | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_CStaffInitBlink    | Vanilla (Hexen)   | |
+| A_CStaffCheckBlink   | Vanilla (Hexen)   | |
+| A_CStaffCheck        | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_CStaffAttack       | Vanilla (Hexen)   | |
+| A_CFlameAttack       | Vanilla (Hexen)   | |
+| A_CHolyAttack        | Vanilla (Hexen)   | |
+| A_CHolyPalette       | Vanilla (Hexen)   | |
+| A_MWandAttack        | Vanilla (Hexen)   | |
+| A_LightningReady     | Vanilla (Hexen)   | |
+| A_MLightningAttack   | Vanilla (Hexen)   | |
+| A_MStaffAttack       | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_MStaffPalette      | Vanilla (Hexen)   | |
+| A_FireConePL1        | Vanilla (Hexen)   | |
+
+### Codepointers EX
+
+| Name                 | Origin | Description |
+|----------------------|--------|-|
+| A_WeaponSound        |        | |
+| A_WeaponProjectile   |        | |
+| A_WeaponBulletAttack |        | |
+| A_WeaponMeleeAttack  |        | |
+| A_ConsumeAmmo        |        | |
+| A_GauntletAttackEX   |        | |
+| A_FireGoldWandEX1    |        | |
+| A_FireCrossbowEX1    |        | |
+| A_FireCrossbowEX2    |        | |
+| A_FireSkullRodEX1    |        | |
+| A_FireSkullRodEX2    |        | |
+| A_FirePhoenixEX2     |        | |
+| A_FireMaceEX1        |        | |
+| A_FireMaceEX2        |        | |
+| A_FireTempestWandPL1 |        | |
+| A_CShieldParry       |        | |
+| A_CShieldGuard       |        | |
+| A_CShieldLower       |        | |
+| A_FireConeEX1        |        | |
+| A_MStaffAttackEX     |        | |
 
 ## Ammo
 
@@ -397,6 +819,22 @@
 | ARTIFLASH       | New    | pickup mobj plays the artifact flash animation on pickup, instead of removing the mobj. |
 | INSTANCED       | New    | pickup is instanced for each player in multiplayer modes -- this is a Kex multiplayer feature; something nice to have for other MP ports but they gotta implement it first |
 
+### Codepointers EX
+
+| Name                | Origin | Description |
+|---------------------|--------|-------------|
+| A_PickupHealth      |        | |
+| A_PickupBasicArmor  |        | |
+| A_PickupHexenArmor  |        | |
+| A_PickupBackpack    |        | |
+| A_PickupWeapon      |        | |
+| A_PickupWeaponPiece |        | |
+| A_PickupAmmo        |        | |
+| A_PickupDualAmmo    |        | |
+| A_PickupPower       |        | |
+| A_PickupArtifact    |        | |
+| A_PickupKey         |        | |
+
 ## Power
 
 | Name        | Origin | Description |
@@ -422,6 +860,21 @@
 | addflags              | power flags  | |
 | removeflags           | power flags  | |
 
+### Codepointers EX
+
+| Name                     | Origin | Description |
+|--------------------------|--------|-------------|
+| A_PowerInvulnerableStart |        | |
+| A_PowerInvulnerableTick  |        | |
+| A_PowerInvulnerableEnd   |        | |
+| A_PowerInvisibilityStart |        | |
+| A_PowerInvisibilityEnd   |        | |
+| A_PowerStrengthStart     |        | |
+| A_PowerFlightStart       |        | |
+| A_PowerFlightEnd         |        | |
+| A_PowerWeaponLevel2Start |        | |
+| A_PowerWeaponLevel2End   |        | |
+
 ## Artifact
 
 ### Properties
@@ -445,6 +898,32 @@
 |---------------------|--------|-------------|
 | AUTOUSE_HEALTH_BABY | New    | automatically-used health on baby difficulty |
 | AUTOUSE_HEALTH_DM   | New    | automatically-used health artifact on deathmath |
+
+### Codepointers EX
+
+| Name                | Origin | Description |
+|---------------------|--------|-------------|
+| A_ArtiGivePower     |        | |
+| A_ArtiHealth        |        | |
+| A_ArtiEgg           |        | |
+| A_ArtiSummon        |        | |
+| A_ArtiTeleport      |        | |
+| A_ArtiTeleportOther |        | |
+| A_ArtiBoostMana     |        | |
+| A_ArtiBoostArmor    |        | |
+| A_ArtiBlastRadius   |        | |
+| A_ArtiFlechette     |        | |
+| A_ArtiThrowingBomb  |        | |
+| A_ArtiThrowingBombEX|        | |
+| A_ArtiPoisonBag     |        | |
+| A_ArtiFireBomb      |        | |
+| A_ArtiHealingRadius |        | |
+| A_RadiusGiveArmor   |        | |
+| A_RadiusGiveArmorEX |        | |
+| A_RadiusGiveHealth  |        | |
+| A_RadiusGiveMana    |        | |
+| A_RadiusGiveManaEX  |        | |
+| A_ArtiPuzzleItem    |        | |
 
 ## Lock
 
@@ -593,450 +1072,2169 @@
 | teleport_destination   | Teleport destination                            | |
 | bridge                 | Bridge thing that spawns glitter objects        | |
 
-## Codepointer Overview
+## Actor Codepointer Overview
 
-| Name                   | Type   | Origin            | Description |
-|------------------------|--------|-------------------|-------------|
-| A_Light0               | Weapon | Vanilla (Common)  | |
-| A_Light1               | Weapon | Vanilla (Common)  | |
-| A_Light2               | Weapon | Vanilla (Common)  | |
-| A_WeaponReady          | Weapon | Vanilla (Common)  | |
-| A_Lower                | Weapon | Vanilla (Common)  | |
-| A_Raise                | Weapon | Vanilla (Common)  | |
-| A_ReFire               | Weapon | Vanilla (Common)  | |
-| A_Look                 | Actor  | Vanilla (Common)  | |
-| A_Chase                | Actor  | Vanilla (Common)  | |
-| A_FaceTarget           | Actor  | Vanilla (Common)  | |
-| A_Scream               | Actor  | Vanilla (Common)  | |
-| A_Pain                 | Actor  | Vanilla (Common)  | |
-| A_FreeTargMobj         | Actor  | Vanilla (Common)  | |
-| A_RestoreSpecialThing1 | Actor  | Vanilla (Common)  | |
-| A_RestoreSpecialThing2 | Actor  | Vanilla (Common)  | |
-| A_RestoreArtifact      | Actor  | Vanilla (Common)  | |
-| A_HideThing            | Actor  | Vanilla (Common)  | |
-| A_UnHideThing          | Actor  | Vanilla (Common)  | |
-| A_NoBlocking           | Actor  | Vanilla (Common)  | |
-| A_AddPlayerCorpse      | Actor  | Vanilla (Common)  | |
-| A_SkullPop             | Actor  | Vanilla (Common)  | |
-| A_CheckBurnGone        | Actor  | Vanilla (Common)  | |
-| A_CheckSkullFloor      | Actor  | Vanilla (Common)  | |
-| A_CheckSkullDone       | Actor  | Vanilla (Common)  | |
-| A_ESound               | Actor  | Modified          | Now plays the actor's 'activesound', instead of doing a hardcoded branch based on mobj type. |
-| A_PlayerPain           | Actor  | Vanilla (Heretic) | |
-| A_PlayerScream         | Actor  | Vanilla (Heretic) | |
-| A_BossDeath            | Actor  | Vanilla (Heretic) | |
-| A_Explode              | Actor  | Modified          | Branches based on actor's behavior field, instead of its mobjtype |
-| A_PodPain              | Actor  | Vanilla (Heretic) | |
-| A_RemovePod            | Actor  | Vanilla (Heretic) | |
-| A_MakePod              | Actor  | Vanilla (Heretic) | |
-| A_InitKeyGizmo         | Actor  | Vanilla (Heretic) | |
-| A_VolcanoSet           | Actor  | Vanilla (Heretic) | |
-| A_VolcanoBlast         | Actor  | Vanilla (Heretic) | |
-| A_BeastPuff            | Actor  | Vanilla (Heretic) | |
-| A_VolcBallImpact       | Actor  | Vanilla (Heretic) | |
-| A_SpawnTeleGlitter     | Actor  | Vanilla (Heretic) | |
-| A_SpawnTeleGlitter2    | Actor  | Vanilla (Heretic) | |
-| A_AccTeleGlitter       | Actor  | Vanilla (Heretic) | |
-| A_StaffAttackPL1       | Weapon | Vanilla (Heretic) | |
-| A_StaffAttackPL2       | Weapon | Vanilla (Heretic) | |
-| A_BeakReady            | Weapon | Vanilla (Heretic) | |
-| A_BeakRaise            | Weapon | Vanilla (Heretic) | |
-| A_BeakAttackPL1        | Weapon | Vanilla (Heretic) | |
-| A_BeakAttackPL2        | Weapon | Vanilla (Heretic) | |
-| A_GauntletAttack       | Weapon | Vanilla (Heretic) | |
-| A_FireBlasterPL1       | Weapon | Vanilla (Heretic) | |
-| A_FireBlasterPL2       | Weapon | Vanilla (Heretic) | |
-| A_SpawnRippers         | Actor  | Vanilla (Heretic) | |
-| A_FireMacePL1          | Weapon | Vanilla (Heretic) | |
-| A_FireMacePL2          | Weapon | Vanilla (Heretic) | |
-| A_MacePL1Check         | Actor  | Vanilla (Heretic) | |
-| A_MaceBallImpact       | Actor  | Vanilla (Heretic) | |
-| A_MaceBallImpact2      | Actor  | Vanilla (Heretic) | |
-| A_DeathBallImpact      | Actor  | Vanilla (Heretic) | |
-| A_FireSkullRodPL1      | Weapon | Vanilla (Heretic) | |
-| A_FireSkullRodPL2      | Weapon | Vanilla (Heretic) | |
-| A_SkullRodPL2Seek      | Actor  | Vanilla (Heretic) | |
-| A_AddPlayerRain        | Actor  | Vanilla (Heretic) | |
-| A_HideInCeiling        | Actor  | Vanilla (Heretic) | |
-| A_SkullRodStorm        | Actor  | Vanilla (Heretic) | |
-| A_RainImpact           | Actor  | Vanilla (Heretic) | |
-| A_FireGoldWandPL1      | Weapon | Vanilla (Heretic) | |
-| A_FireGoldWandPL2      | Weapon | Vanilla (Heretic) | |
-| A_FirePhoenixPL1       | Weapon | Vanilla (Heretic) | |
-| A_InitPhoenixPL2       | Weapon | Vanilla (Heretic) | |
-| A_FirePhoenixPL2       | Weapon | Vanilla (Heretic) | |
-| A_ShutdownPhoenixPL2   | Weapon | Vanilla (Heretic) | |
-| A_PhoenixPuff          | Actor  | Vanilla (Heretic) | |
-| A_FlameEnd             | Actor  | Vanilla (Heretic) | |
-| A_FloatPuff            | Actor  | Vanilla (Heretic) | |
-| A_FireCrossbowPL1      | Weapon | Vanilla (Heretic) | |
-| A_FireCrossbowPL2      | Weapon | Vanilla (Heretic) | |
-| A_BoltSpark            | Actor  | Vanilla (Heretic) | |
-| A_FlameSnd             | Actor  | Vanilla (Heretic) | |
-| A_Feathers             | Actor  | Vanilla (Heretic) | |
-| A_ChicLook             | Actor  | Vanilla (Heretic) | |
-| A_ChicChase            | Actor  | Vanilla (Heretic) | |
-| A_ChicPain             | Actor  | Vanilla (Heretic) | |
-| A_ChicAttack           | Actor  | Vanilla (Heretic) | |
-| A_MummyAttack          | Actor  | Vanilla (Heretic) | |
-| A_MummyAttack2         | Actor  | Vanilla (Heretic) | |
-| A_MummySoul            | Actor  | Vanilla (Heretic) | |
-| A_ContMobjSound        | Actor  | Vanilla (Heretic) | |
-| A_MummyFX1Seek         | Actor  | Vanilla (Heretic) | |
-| A_BeastAttack          | Actor  | Vanilla (Heretic) | |
-| A_SnakeAttack          | Actor  | Vanilla (Heretic) | |
-| A_SnakeAttack2         | Actor  | Vanilla (Heretic) | |
-| A_LichAttack           | Actor  | Vanilla (Heretic) | Named A_HeadAttack in vanilla; renamed to avoid ambiguity with Cacodemon attack function (matches GZDoom's naming) |
-| A_HeadIceImpact        | Actor  | Vanilla (Heretic) | |
-| A_HeadFireGrow         | Actor  | Vanilla (Heretic) | |
-| A_WhirlwindSeek        | Actor  | Vanilla (Heretic) | |
-| A_ClinkAttack          | Actor  | Vanilla (Heretic) | |
-| A_WizAtk1              | Actor  | Vanilla (Heretic) | |
-| A_WizAtk2              | Actor  | Vanilla (Heretic) | |
-| A_WizAtk3              | Actor  | Vanilla (Heretic) | |
-| A_GhostOff             | Actor  | Vanilla (Heretic) | |
-| A_ImpMeAttack          | Actor  | Vanilla (Heretic) | |
-| A_ImpMsAttack          | Actor  | Vanilla (Heretic) | |
-| A_ImpMsAttack2         | Actor  | Vanilla (Heretic) | |
-| A_ImpDeath             | Actor  | Vanilla (Heretic) | |
-| A_ImpXDeath1           | Actor  | Vanilla (Heretic) | |
-| A_ImpXDeath2           | Actor  | Vanilla (Heretic) | |
-| A_ImpExplode           | Actor  | Vanilla (Heretic) | |
-| A_KnightAttack         | Actor  | Vanilla (Heretic) | |
-| A_DripBlood            | Actor  | Vanilla (Heretic) | |
-| A_Sor1Chase            | Actor  | Vanilla (Heretic) | |
-| A_Sor1Pain             | Actor  | Vanilla (Heretic) | |
-| A_Srcr1Attack          | Actor  | Vanilla (Heretic) | |
-| A_SorZap               | Actor  | Vanilla (Heretic) | |
-| A_SorcererRise         | Actor  | Vanilla (Heretic) | |
-| A_SorRise              | Actor  | Vanilla (Heretic) | |
-| A_SorSightSnd          | Actor  | Vanilla (Heretic) | |
-| A_Srcr2Decide          | Actor  | Vanilla (Heretic) | |
-| A_Srcr2Attack          | Actor  | Vanilla (Heretic) | |
-| A_Sor2DthInit          | Actor  | Vanilla (Heretic) | |
-| A_SorDSph              | Actor  | Vanilla (Heretic) | |
-| A_Sor2DthLoop          | Actor  | Vanilla (Heretic) | |
-| A_SorDExp              | Actor  | Vanilla (Heretic) | |
-| A_SorDBon              | Actor  | Vanilla (Heretic) | |
-| A_BlueSpark            | Actor  | Vanilla (Heretic) | |
-| A_GenWizard            | Actor  | Vanilla (Heretic) | |
-| A_MinotaurAtk1         | Actor  | Vanilla (Heretic) | |
-| A_MinotaurDecide       | Actor  | Vanilla (Heretic) | |
-| A_MinotaurAtk2         | Actor  | Vanilla (Heretic) | |
-| A_MinotaurAtk3         | Actor  | Vanilla (Heretic) | |
-| A_MinotaurCharge       | Actor  | Vanilla (Heretic) | |
-| A_MntrFloorFire        | Actor  | Vanilla (Heretic) | |
-| A_FlameCheck           | Actor  | Vanilla (Hexen)   | |
-| A_Summon               | Actor  | Vanilla (Hexen)   | |
-| A_ThrustInitUp         | Actor  | Vanilla (Hexen)   | |
-| A_ThrustInitDn         | Actor  | Vanilla (Hexen)   | |
-| A_ThrustRaise          | Actor  | Vanilla (Hexen)   | |
-| A_ThrustBlock          | Actor  | Vanilla (Hexen)   | |
-| A_ThrustImpale         | Actor  | Vanilla (Hexen)   | |
-| A_ThrustLower          | Actor  | Vanilla (Hexen)   | |
-| A_TeloSpawnC           | Actor  | Vanilla (Hexen)   | |
-| A_TeloSpawnB           | Actor  | Vanilla (Hexen)   | |
-| A_TeloSpawnA           | Actor  | Vanilla (Hexen)   | |
-| A_TeloSpawnD           | Actor  | Vanilla (Hexen)   | |
-| A_CheckTeleRing        | Actor  | Vanilla (Hexen)   | |
-| A_FogSpawn             | Actor  | Vanilla (Hexen)   | |
-| A_FogMove              | Actor  | Vanilla (Hexen)   | |
-| A_Quake                | Actor  | Vanilla (Hexen)   | |
-| A_PoisonBagInit        | Actor  | Vanilla (Hexen)   | |
-| A_PoisonBagDamage      | Actor  | Vanilla (Hexen)   | |
-| A_PoisonBagCheck       | Actor  | Vanilla (Hexen)   | |
-| A_CheckThrowBomb       | Actor  | Vanilla (Hexen)   | |
-| A_NoGravity            | Actor  | Vanilla (Hexen)   | |
-| A_PotteryExplode       | Actor  | Vanilla (Hexen)   | |
-| A_PotteryChooseBit     | Actor  | Vanilla (Hexen)   | |
-| A_PotteryCheck         | Actor  | Vanilla (Hexen)   | |
-| A_CorpseBloodDrip      | Actor  | Vanilla (Hexen)   | |
-| A_CorpseExplode        | Actor  | Vanilla (Hexen)   | |
-| A_LeafSpawn            | Actor  | Vanilla (Hexen)   | |
-| A_LeafThrust           | Actor  | Vanilla (Hexen)   | |
-| A_LeafCheck            | Actor  | Vanilla (Hexen)   | |
-| A_BridgeInit           | Actor  | Vanilla (Hexen)   | |
-| A_BridgeOrbit          | Actor  | Vanilla (Hexen)   | |
-| A_TreeDeath            | Actor  | Vanilla (Hexen)   | |
-| A_PoisonShroom         | Actor  | Vanilla (Hexen)   | |
-| A_SoAExplode           | Actor  | Vanilla (Hexen)   | |
-| A_BellReset1           | Actor  | Vanilla (Hexen)   | |
-| A_BellReset2           | Actor  | Vanilla (Hexen)   | |
-| A_FPunchAttack         | Weapon | Vanilla (Hexen)   | |
-| A_FAxeCheckUp          | Weapon | New               | Identical to GZDoom's function of the same name. |
-| A_FAxeCheckUpG         | Weapon | New               | Identical to GZDoom's function of the same name. |
-| A_FAxeCheckReady       | Weapon | New               | Identical to GZDoom's function of the same name. |
-| A_FAxeCheckReadyG      | Weapon | New               | Identical to GZDoom's function of the same name. |
-| A_FAxeCheckAtk         | Weapon | New               | Identical to GZDoom's function of the same name. |
-| A_FAxeAttack           | Weapon | Vanilla (Hexen)   | |
-| A_SnoutAttack          | Weapon | Vanilla (Hexen)   | |
-| A_FHammerAttack        | Weapon | Vanilla (Hexen)   | |
-| A_FHammerThrow         | Weapon | Vanilla (Hexen)   | |
-| A_FSwordAttack         | Weapon | Vanilla (Hexen)   | |
-| A_FSwordFlames         | Actor  | Vanilla (Hexen)   | |
-| A_CMaceAttack          | Weapon | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
-| A_CStaffInitBlink      | Weapon | Vanilla (Hexen)   | |
-| A_CStaffCheckBlink     | Weapon | Vanilla (Hexen)   | |
-| A_CStaffCheck          | Weapon | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
-| A_CStaffAttack         | Weapon | Vanilla (Hexen)   | |
-| A_CStaffMissileSlither | Actor  | Vanilla (Hexen)   | |
-| A_CFlameAttack         | Weapon | Vanilla (Hexen)   | |
-| A_CFlameRotate         | Actor  | Vanilla (Hexen)   | |
-| A_CFlamePuff           | Actor  | Vanilla (Hexen)   | |
-| A_CFlameMissile        | Actor  | Vanilla (Hexen)   | |
-| A_CHolyAttack          | Weapon | Vanilla (Hexen)   | |
-| A_CHolyPalette         | Weapon | Vanilla (Hexen)   | |
-| A_CHolySeek            | Actor  | Vanilla (Hexen)   | |
-| A_CHolyCheckScream     | Actor  | Vanilla (Hexen)   | |
-| A_CHolyTail            | Actor  | Vanilla (Hexen)   | |
-| A_CHolySpawnPuff       | Actor  | Vanilla (Hexen)   | |
-| A_CHolyAttack2         | Actor  | Vanilla (Hexen)   | |
-| A_MWandAttack          | Weapon | Vanilla (Hexen)   | |
-| A_LightningReady       | Weapon | Vanilla (Hexen)   | |
-| A_MLightningAttack     | Weapon | Vanilla (Hexen)   | |
-| A_LightningZap         | Actor  | Vanilla (Hexen)   | |
-| A_LightningClip        | Actor  | Vanilla (Hexen)   | |
-| A_LightningRemove      | Actor  | Vanilla (Hexen)   | |
-| A_LastZap              | Actor  | Vanilla (Hexen)   | |
-| A_ZapMimic             | Actor  | Vanilla (Hexen)   | |
-| A_MStaffAttack         | Weapon | Modified          | Now has args for extended behavior; see "Actions (New)" tab for details |
-| A_MStaffPalette        | Weapon | Vanilla (Hexen)   | |
-| A_MStaffWeave          | Actor  | Vanilla (Hexen)   | |
-| A_MStaffTrack          | Actor  | Vanilla (Hexen)   | |
-| A_SnoutAttack          | Actor  | Vanilla (Hexen)   | |
-| A_FireConePL1          | Weapon | Vanilla (Hexen)   | |
-| A_ShedShard            | Actor  | Vanilla (Hexen)   | |
-| A_FreezeDeath          | Actor  | Vanilla (Hexen)   | |
-| A_FreezeDeathChunks    | Actor  | Vanilla (Hexen)   | |
-| A_SpeedFade            | Actor  | Vanilla (Hexen)   | |
-| A_IceSetTics           | Actor  | Vanilla (Hexen)   | |
-| A_IceCheckHeadDone     | Actor  | Vanilla (Hexen)   | |
-| A_PigPain              | Actor  | Vanilla (Hexen)   | |
-| A_PigLook              | Actor  | Vanilla (Hexen)   | |
-| A_PigChase             | Actor  | Vanilla (Hexen)   | |
-| A_PigAttack            | Actor  | Vanilla (Hexen)   | |
-| A_QueueCorpse          | Actor  | Vanilla (Hexen)   | |
-| A_CentaurAttack        | Actor  | Vanilla (Hexen)   | |
-| A_CentaurAttack2       | Actor  | Vanilla (Hexen)   | |
-| A_SetReflective        | Actor  | Vanilla (Hexen)   | |
-| A_CentaurDefend        | Actor  | Vanilla (Hexen)   | |
-| A_UnSetReflective      | Actor  | Vanilla (Hexen)   | |
-| A_CentaurDropStuff     | Actor  | Vanilla (Hexen)   | |
-| A_CheckFloor           | Actor  | Vanilla (Hexen)   | |
-| A_DemonAttack1         | Actor  | Vanilla (Hexen)   | |
-| A_DemonAttack2         | Actor  | Vanilla (Hexen)   | |
-| A_DemonDeath           | Actor  | Vanilla (Hexen)   | |
-| A_Demon2Death          | Actor  | Vanilla (Hexen)   | |
-| A_WraithRaiseInit      | Actor  | Vanilla (Hexen)   | |
-| A_WraithRaise          | Actor  | Vanilla (Hexen)   | |
-| A_WraithInit           | Actor  | Vanilla (Hexen)   | |
-| A_WraithLook           | Actor  | Vanilla (Hexen)   | |
-| A_WraithChase          | Actor  | Vanilla (Hexen)   | |
-| A_WraithFX3            | Actor  | Vanilla (Hexen)   | |
-| A_WraithMelee          | Actor  | Vanilla (Hexen)   | |
-| A_WraithMissile        | Actor  | Vanilla (Hexen)   | |
-| A_WraithFX2            | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurFade1        | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurFade2        | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurLook         | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurChase        | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurRoam         | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurAtk1         | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurDecide       | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurAtk2         | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurAtk3         | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurCharge       | Actor  | Vanilla (Hexen)   | |
-| A_SmokePuffExit        | Actor  | Vanilla (Hexen)   | |
-| A_MinotaurFade0        | Actor  | Vanilla (Hexen)   | |
-| A_MntrFloorFire        | Actor  | Vanilla (Hexen)   | |
-| A_SerpentChase         | Actor  | Vanilla (Hexen)   | |
-| A_SerpentHumpDecide    | Actor  | Vanilla (Hexen)   | |
-| A_SerpentUnHide        | Actor  | Vanilla (Hexen)   | |
-| A_SerpentRaiseHump     | Actor  | Vanilla (Hexen)   | |
-| A_SerpentLowerHump     | Actor  | Vanilla (Hexen)   | |
-| A_SerpentHide          | Actor  | Vanilla (Hexen)   | |
-| A_SerpentBirthScream   | Actor  | Vanilla (Hexen)   | |
-| A_SetShootable         | Actor  | Vanilla (Hexen)   | |
-| A_SerpentCheckForAttack| Actor  | Vanilla (Hexen)   | |
-| A_UnSetShootable       | Actor  | Vanilla (Hexen)   | |
-| A_SerpentDiveSound     | Actor  | Vanilla (Hexen)   | |
-| A_SerpentWalk          | Actor  | Vanilla (Hexen)   | |
-| A_SerpentChooseAttack  | Actor  | Vanilla (Hexen)   | |
-| A_SerpentMeleeAttack   | Actor  | Vanilla (Hexen)   | |
-| A_SerpentMissileAttack | Actor  | Vanilla (Hexen)   | |
-| A_SerpentHeadPop       | Actor  | Vanilla (Hexen)   | |
-| A_SerpentSpawnGibs     | Actor  | Vanilla (Hexen)   | |
-| A_SerpentHeadCheck     | Actor  | Vanilla (Hexen)   | |
-| A_FloatGib             | Actor  | Vanilla (Hexen)   | |
-| A_DelayGib             | Actor  | Vanilla (Hexen)   | |
-| A_SinkGib              | Actor  | Vanilla (Hexen)   | |
-| A_BishopDecide         | Actor  | Vanilla (Hexen)   | |
-| A_BishopDoBlur         | Actor  | Vanilla (Hexen)   | |
-| A_BishopSpawnBlur      | Actor  | Vanilla (Hexen)   | |
-| A_BishopChase          | Actor  | Vanilla (Hexen)   | |
-| A_BishopAttack         | Actor  | Vanilla (Hexen)   | |
-| A_BishopAttack2        | Actor  | Vanilla (Hexen)   | |
-| A_BishopPainBlur       | Actor  | Vanilla (Hexen)   | |
-| A_BishopPuff           | Actor  | Vanilla (Hexen)   | |
-| A_SetAltShadow         | Actor  | Vanilla (Hexen)   | |
-| A_BishopMissileWeave   | Actor  | Vanilla (Hexen)   | |
-| A_BishopMissileSeek    | Actor  | Vanilla (Hexen)   | |
-| A_DragonInitFlight     | Actor  | Vanilla (Hexen)   | |
-| A_DragonFlap           | Actor  | Vanilla (Hexen)   | |
-| A_DragonFlight         | Actor  | Vanilla (Hexen)   | |
-| A_DragonAttack         | Actor  | Vanilla (Hexen)   | |
-| A_DragonPain           | Actor  | Vanilla (Hexen)   | |
-| A_DragonCheckCrash     | Actor  | Vanilla (Hexen)   | |
-| A_DragonFX2            | Actor  | Vanilla (Hexen)   | |
-| A_EttinAttack          | Actor  | Vanilla (Hexen)   | |
-| A_DropMace             | Actor  | Vanilla (Hexen)   | |
-| A_FiredRocks           | Actor  | Vanilla (Hexen)   | |
-| A_UnSetInvulnerable    | Actor  | Vanilla (Hexen)   | |
-| A_FiredChase           | Actor  | Vanilla (Hexen)   | |
-| A_FiredAttack          | Actor  | Vanilla (Hexen)   | |
-| A_FiredSplotch         | Actor  | Vanilla (Hexen)   | |
-| A_SmBounce             | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyLook           | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyChase          | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyAttack         | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyDie            | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyMissilePuff    | Actor  | Vanilla (Hexen)   | |
-| A_IceGuyMissileExplode | Actor  | Vanilla (Hexen)   | |
-| A_ClassBossHealth      | Actor  | Vanilla (Hexen)   | |
-| A_FastChase            | Actor  | Vanilla (Hexen)   | |
-| A_FighterAttack        | Actor  | Vanilla (Hexen)   | |
-| A_ClericAttack         | Actor  | Vanilla (Hexen)   | |
-| A_MageAttack           | Actor  | Vanilla (Hexen)   | |
-| A_SorcSpinBalls        | Actor  | Vanilla (Hexen)   | |
-| A_SpeedBalls           | Actor  | Vanilla (Hexen)   | |
-| A_SpawnFizzle          | Actor  | Vanilla (Hexen)   | |
-| A_SorcBossAttack       | Actor  | Vanilla (Hexen)   | |
-| A_SorcBallOrbit        | Actor  | Vanilla (Hexen)   | |
-| A_SorcBallPop          | Actor  | Vanilla (Hexen)   | |
-| A_BounceCheck          | Actor  | Vanilla (Hexen)   | |
-| A_SorcFX1Seek          | Actor  | Vanilla (Hexen)   | |
-| A_SorcFX2Split         | Actor  | Vanilla (Hexen)   | |
-| A_SorcFX2Orbit         | Actor  | Vanilla (Hexen)   | |
-| A_SorcererBishopEntry  | Actor  | Vanilla (Hexen)   | |
-| A_SpawnBishop          | Actor  | Vanilla (Hexen)   | |
-| A_SorcFX4Check         | Actor  | Vanilla (Hexen)   | |
-| A_KoraxStep2           | Actor  | Vanilla (Hexen)   | |
-| A_KoraxChase           | Actor  | Vanilla (Hexen)   | |
-| A_KoraxStep            | Actor  | Vanilla (Hexen)   | |
-| A_KoraxDecide          | Actor  | Vanilla (Hexen)   | |
-| A_KoraxMissile         | Actor  | Vanilla (Hexen)   | |
-| A_KoraxCommand         | Actor  | Vanilla (Hexen)   | |
-| A_KoraxBonePop         | Actor  | Vanilla (Hexen)   | |
-| A_KSpiritRoam          | Actor  | Vanilla (Hexen)   | |
-| A_KBoltRaise           | Actor  | Vanilla (Hexen)   | |
-| A_KBolt                | Actor  | Vanilla (Hexen)   | |
-| A_BatSpawnInit         | Actor  | Vanilla (Hexen)   | |
-| A_BatSpawn             | Actor  | Vanilla (Hexen)   | |
-| A_BatMove              | Actor  | Vanilla (Hexen)   | |
-| A_FlyTarget            | Actor  | New               | Likely identical to GZDoom's A_FlySearch; name taken from original source code |
-| A_FlyChase             | Actor  | New               | Likely identical to GZDoom's A_FlyBuzz; name taken from original source code |
+- **A_Look**
+  - Description:
+  - Args:
+  - Notes:
 
-## Codepointer Overview EX
+- **A_Chase**
+  - Description:
+  - Args:
+  - Notes:
 
-| Name                     | Type      | Origin | Description |
-|--------------------------|-----------|--------|-------------|
-| A_PlaySound              | Actor     |        | |
-| A_FaceTargetSound        | Actor     |        | |
-| A_RandomJump             | Actor     |        | |
-| A_SpawnObject            | Actor     |        | |
-| A_MonsterProjectile      | Actor     |        | |
-| A_MonsterBulletAttack    | Actor     |        | |
-| A_MonsterMeleeAttack     | Actor     |        | |
-| A_MonsterComboAttack     | Actor     |        | |
-| A_SpawnMinion            | Actor     |        | |
-| A_RadiusDamage           | Actor     |        | |
-| A_SeekTracer             | Actor     |        | |
-| A_FindTracer             | Actor     |        | |
-| A_ClearTracer            | Actor     |        | |
-| A_MissileExplode         | Actor     |        | |
-| A_MissileCountdown       | Actor     |        | |
-| A_WeaponSound            | Weapon    |        | |
-| A_WeaponProjectile       | Weapon    |        | |
-| A_WeaponBulletAttack     | Weapon    |        | |
-| A_WeaponMeleeAttack      | Weapon    |        | |
-| A_ConsumeAmmo            | Weapon    |        | |
-| A_GauntletAttackEX       | Weapon    |        | |
-| A_FireGoldWandEX1        | Weapon    |        | |
-| A_FireCrossbowEX1        | Weapon    |        | |
-| A_FireCrossbowEX2        | Weapon    |        | |
-| A_FireSkullRodEX1        | Weapon    |        | |
-| A_FireSkullRodEX2        | Weapon    |        | |
-| A_FirePhoenixEX2         | Weapon    |        | |
-| A_FireMaceEX1            | Weapon    |        | |
-| A_FireMaceEX2            | Weapon    |        | |
-| A_DeathBallBounceEX      | Actor     |        | |
-| A_FireTempestWandPL1     | Weapon    |        | |
-| A_TempestChain           | Actor     |        | |
-| A_TempestSpray           | Actor     |        | |
-| A_KnightAttackEX         | Actor     |        | |
-| A_ClinkRushEX            | Actor     |        | |
-| A_ClinkAttackEX          | Actor     |        | |
-| A_MinotaurMeleeEX        | Actor     |        | |
-| A_TrollChargeStart       | Actor     |        | |
-| A_TrollCharge            | Actor     |        | |
-| A_SuperDemonAttack1      | Actor     |        | |
-| A_SuperDemonAttack2      | Actor     |        | |
-| A_CShieldParry           | Weapon    |        | |
-| A_CShieldGuard           | Weapon    |        | |
-| A_CShieldLower           | Weapon    |        | |
-| A_FireConeEX1            | Weapon    |        | |
-| A_ShedShardEX            | Actor     |        | |
-| A_MStaffAttackEX         | Weapon    |        | |
-| A_CentaurEXGuardRaise    | Actor     |        | |
-| A_CentaurEXGuardHold     | Actor     |        | |
-| A_CentaurEXGuardLower    | Actor     |        | |
-| A_CentaurAttack2EX       | Actor     |        | |
-| A_InvulnStandardStart    | Player    |        | |
-| A_InvulnStandardEnd      | Player    |        | |
-| A_InvulnPhasedTick       | Player    |        | |
-| A_InvulnPhasedDraw       | PlayerVis |        | |
-| A_InvulnPhasedEnd        | Player    |        | |
-| A_InvulnReflectiveStart  | Player    |        | |
-| A_InvulnReflectiveEnd    | Player    |        | |
-| A_PickupHealth           | Pickup    |        | |
-| A_PickupBasicArmor       | Pickup    |        | |
-| A_PickupHexenArmor       | Pickup    |        | |
-| A_PickupBackpack         | Pickup    |        | |
-| A_PickupWeapon           | Pickup    |        | |
-| A_PickupWeaponPiece      | Pickup    |        | |
-| A_PickupAmmo             | Pickup    |        | |
-| A_PickupDualAmmo         | Pickup    |        | |
-| A_PickupPower            | Pickup    |        | |
-| A_PickupArtifact         | Pickup    |        | |
-| A_PickupKey              | Pickup    |        | |
-| A_PowerInvulnerableStart | Power     |        | |
-| A_PowerInvulnerableTick  | Power     |        | |
-| A_PowerInvulnerableEnd   | Power     |        | |
-| A_PowerInvisibilityStart | Power     |        | |
-| A_PowerInvisibilityEnd   | Power     |        | |
-| A_PowerStrengthStart     | Power     |        | |
-| A_PowerFlightStart       | Power     |        | |
-| A_PowerFlightEnd         | Power     |        | |
-| A_PowerWeaponLevel2Start | Power     |        | |
-| A_PowerWeaponLevel2End   | Power     |        | |
-| A_ArtiGivePower          | Artifact  |        | |
-| A_ArtiHealth             | Artifact  |        | |
-| A_ArtiEgg                | Artifact  |        | |
-| A_ArtiSummon             | Artifact  |        | |
-| A_ArtiTeleport           | Artifact  |        | |
-| A_ArtiTeleportOther      | Artifact  |        | |
-| A_ArtiBoostMana          | Artifact  |        | |
-| A_ArtiBoostArmor         | Artifact  |        | |
-| A_ArtiBlastRadius        | Artifact  |        | |
-| A_ArtiFlechette          | Artifact  |        | |
-| A_ArtiThrowingBomb       | Artifact  |        | |
-| A_ArtiThrowingBombEX     | Artifact  |        | |
-| A_ArtiPoisonBag          | Artifact  |        | |
-| A_ArtiFireBomb           | Artifact  |        | |
-| A_ArtiHealingRadius      | Artifact  |        | |
-| A_RadiusGiveArmor        | Artifact  |        | |
-| A_RadiusGiveArmorEX      | Artifact  |        | |
-| A_RadiusGiveHealth       | Artifact  |        | |
-| A_RadiusGiveMana         | Artifact  |        | |
-| A_RadiusGiveManaEX       | Artifact  |        | |
-| A_ArtiPuzzleItem         | Artifact  |        | |
+- **A_FaceTarget**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Scream**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Pain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FreeTargMobj**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RestoreSpecialThing1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RestoreSpecialThing2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RestoreArtifact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_HideThing**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_UnHideThing**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_NoBlocking**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_AddPlayerCorpse**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SkullPop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckBurnGone**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckSkullFloor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckSkullDone**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ESound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PlayerPain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PlayerScream**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BossDeath**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Explode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PodPain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RemovePod**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MakePod**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InitKeyGizmo**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_VolcanoSet**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_VolcanoBlast**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeastPuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_VolcBallImpact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnTeleGlitter**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnTeleGlitter2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_AccTeleGlitter**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnRippers**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MacePL1Check**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MaceBallImpact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MaceBallImpact2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DeathBallImpact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SkullRodPL2Seek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_AddPlayerRain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_HideInCeiling**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SkullRodStorm**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RainImpact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PhoenixPuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FlameEnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FloatPuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BoltSpark**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FlameSnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Feathers**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ChicLook**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ChicChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ChicPain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ChicAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MummyAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MummyAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MummySoul**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ContMobjSound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MummyFX1Seek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeastAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SnakeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SnakeAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LichAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_HeadIceImpact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_HeadFireGrow**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WhirlwindSeek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClinkAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WizAtk1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WizAtk2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WizAtk3**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_GhostOff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpMeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpMsAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpMsAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpDeath**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpXDeath1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpXDeath2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ImpExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KnightAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DripBlood**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Sor1Chase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Sor1Pain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Srcr1Attack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorZap**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcererRise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorRise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorSightSnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Srcr2Decide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Srcr2Attack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Sor2DthInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorDSph**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Sor2DthLoop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorDExp**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorDBon**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BlueSpark**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_GenWizard**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurDecide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk3**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurCharge**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MntrFloorFire**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FlameCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Summon**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustInitUp**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustInitDn**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustRaise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustBlock**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustImpale**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ThrustLower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TeloSpawnC**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TeloSpawnB**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TeloSpawnA**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TeloSpawnD**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckTeleRing**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FogSpawn**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FogMove**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Quake**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PoisonBagInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PoisonBagDamage**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PoisonBagCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckThrowBomb**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_NoGravity**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PotteryExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PotteryChooseBit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PotteryCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CorpseBloodDrip**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CorpseExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LeafSpawn**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LeafThrust**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LeafCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BridgeInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BridgeOrbit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TreeDeath**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PoisonShroom**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SoAExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BellReset1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BellReset2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FSwordFlames**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CStaffMissileSlither**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CFlameRotate**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CFlamePuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CFlameMissile**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolySeek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolyCheckScream**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolyTail**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolySpawnPuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolyAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LightningZap**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LightningClip**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LightningRemove**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LastZap**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ZapMimic**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MStaffWeave**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MStaffTrack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SnoutAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ShedShard**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FreezeDeath**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FreezeDeathChunks**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpeedFade**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceSetTics**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceCheckHeadDone**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PigPain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PigLook**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PigChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PigAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_QueueCorpse**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SetReflective**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurDefend**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_UnSetReflective**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurDropStuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckFloor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DemonAttack1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DemonAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DemonDeath**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Demon2Death**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithRaiseInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithRaise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithLook**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithFX3**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithMelee**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithMissile**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WraithFX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurFade1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurFade2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurLook**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurRoam**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurDecide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurAtk3**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurCharge**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SmokePuffExit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurFade0**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MntrFloorFire**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentHumpDecide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentUnHide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentRaiseHump**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentLowerHump**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentHide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentBirthScream**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SetShootable**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentCheckForAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_UnSetShootable**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentDiveSound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentWalk**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentChooseAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentMeleeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentMissileAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentHeadPop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentSpawnGibs**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentHeadCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FloatGib**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DelayGib**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SinkGib**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopDecide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopDoBlur**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopSpawnBlur**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopPainBlur**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopPuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SetAltShadow**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopMissileWeave**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopMissileSeek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonInitFlight**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonFlap**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonFlight**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonPain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonCheckCrash**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DragonFX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_EttinAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DropMace**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FiredRocks**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_UnSetInvulnerable**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FiredChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FiredAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FiredSplotch**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SmBounce**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyLook**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyDie**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyMissilePuff**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_IceGuyMissileExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClassBossHealth**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FastChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FighterAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClericAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MageAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcSpinBalls**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpeedBalls**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnFizzle**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcBossAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcBallOrbit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcBallPop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BounceCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcFX1Seek**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcFX2Split**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcFX2Orbit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcererBishopEntry**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnBishop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SorcFX4Check**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxStep2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxChase**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxStep**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxDecide**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxMissile**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxCommand**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KoraxBonePop**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KSpiritRoam**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KBoltRaise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KBolt**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BatSpawnInit**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BatSpawn**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BatMove**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FlyTarget**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FlyChase**
+  - Description:
+  - Args:
+  - Notes:
+
+## Actor Codepointer EX Overview
+
+- **A_PlaySound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FaceTargetSound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RandomJump**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnObject**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MonsterProjectile**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MonsterBulletAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MonsterMeleeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MonsterComboAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SpawnMinion**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusDamage**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SeekTracer**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FindTracer**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClearTracer**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MissileExplode**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MissileCountdown**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_DeathBallBounceEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TempestChain**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TempestSpray**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_KnightAttackEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClinkRushEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ClinkAttackEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MinotaurMeleeEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TrollChargeStart**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_TrollCharge**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SuperDemonAttack1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SuperDemonAttack2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ShedShardEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurEXGuardRaise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurEXGuardHold**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurEXGuardLower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CentaurAttack2EX**
+  - Description:
+  - Args:
+  - Notes:
+
+## Weapon Codepointer Overview
+- **A_Light0**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Light1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Light2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponReady**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Lower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Raise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ReFire**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_StaffAttackPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_StaffAttackPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeakReady**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeakRaise**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeakAttackPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BeakAttackPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_GauntletAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireBlasterPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireBlasterPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireMacePL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireMacePL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireSkullRodPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireSkullRodPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireGoldWandPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireGoldWandPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FirePhoenixPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InitPhoenixPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FirePhoenixPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ShutdownPhoenixPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireCrossbowPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireCrossbowPL2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FPunchAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckUp**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckUpG**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckReady**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckReadyG**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckAtk**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SnoutAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FHammerAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FHammerThrow**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FSwordAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CMaceAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CStaffInitBlink**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CStaffCheckBlink**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CStaffCheck**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CStaffAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CFlameAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolyAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CHolyPalette**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MWandAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_LightningReady**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MLightningAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MStaffAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MStaffPalette**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireConePL1**
+  - Description:
+  - Args:
+  - Notes:
+
+## Weapon Codepointer EX Overview
+
+- **A_WeaponSound**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponProjectile**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponBulletAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponMeleeAttack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ConsumeAmmo**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_GauntletAttackEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireGoldWandEX1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireCrossbowEX1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireCrossbowEX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireSkullRodEX1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireSkullRodEX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FirePhoenixEX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireMaceEX1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireMaceEX2**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireTempestWandPL1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CShieldParry**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CShieldGuard**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CShieldLower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireConeEX1**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_MStaffAttackEX**
+  - Description:
+  - Args:
+  - Notes:
+
+## Pickup Codepointer EX Overview
+- **A_PickupHealth**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupBasicArmor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupHexenArmor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupBackpack**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupWeapon**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupWeaponPiece**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupAmmo**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupDualAmmo**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupPower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupArtifact**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PickupKey**
+  - Description:
+  - Args:
+  - Notes:
+
+## Power Codepointer EX Overview
+
+- **A_PowerInvulnerableStart**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerInvulnerableTick**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerInvulnerableEnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerInvisibilityStart**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerInvisibilityEnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerStrengthStart**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerFlightStart**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerFlightEnd**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerWeaponLevel2Start**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_PowerWeaponLevel2End**
+  - Description:
+  - Args:
+  - Notes:
+
+## Artifact Codepointer EX Overview
+
+- **A_ArtiGivePower**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiHealth**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiEgg**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiSummon**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiTeleport**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiTeleportOther**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiBoostMana**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiBoostArmor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiBlastRadius**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiFlechette**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiThrowingBomb**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiThrowingBombEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiPoisonBag**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiFireBomb**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiHealingRadius**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusGiveArmor**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusGiveArmorEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusGiveHealth**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusGiveMana**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RadiusGiveManaEX**
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_ArtiPuzzleItem**
+  - Description:
+  - Args:
+  - Notes:

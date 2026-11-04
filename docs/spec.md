@@ -188,7 +188,7 @@
 | A_PlayerPain               | Heretic            | |
 | A_PlayerScream             | Heretic            | |
 | A_BossDeath                | Heretic            | |
-| A_Explode                  | Heretic - Modified | Branches based on actor's behavior field, instead of its mobjtype |
+| [A_Explode](#A_Explode)    | Heretic - Modified | Branches based on actor's behavior field, instead of its mobjtype |
 | A_PodPain                  | Heretic            | |
 | A_RemovePod                | Heretic            | |
 | A_MakePod                  | Heretic            | |
@@ -461,6 +461,8 @@
 | [A_PlaySound](#A_PlaySound)                    | MBF    | |
 | [A_FaceTargetSound](#A_FaceTargetSound)        | New    | |
 | [A_RandomJump](#A_RandomJump)                  | MBF    | |
+| [A_Die](#A_Die)                                | MBF    | |
+| [A_Stop](#A_Stop)                              | MBF    | |
 | [A_SpawnObject](#A_SpawnObject)                | MBF21  | |
 | [A_MonsterProjectile](#A_MonsterProjectile)    | MBF21  | |
 | [A_MonsterBulletAttack](#A_MonsterBulletAttack)| MBF21  | |
@@ -468,11 +470,26 @@
 | [A_MonsterComboAttack](#A_MonsterComboAttack)  | New    | |
 | [A_SpawnMinion](#A_SpawnMinion)                | New    | |
 | [A_RadiusDamage](#A_RadiusDamage)              | MBF21  | |
+| [A_NoiseAlert](#A_NoiseAlert)                  | MBF21  | |
+| [A_HealChase](#A_HealChase)                    | MBF21  | |
 | [A_SeekTracer](#A_SeekTracer)                  | MBF21  | |
 | [A_FindTracer](#A_FindTracer)                  | MBF21  | |
 | [A_ClearTracer](#A_ClearTracer)                | MBF21  | |
 | [A_MissileExplode](#A_MissileExplode)          | New    | |
 | [A_MissileCountdown](#A_MissileCountdown)      | New    | |
+| [A_JumpIfHealthBelow](#A_JumpIfHealthBelow)    | MBF21  | |
+| [A_JumpIfTargetInSight](#A_JumpIfTargetInSight)| MBF21  | |
+| [A_JumpIfTargetCloser](#A_JumpIfTargetCloser)  | MBF21  | |
+| [A_JumpIfTargetAlive](#A_JumpIfTargetAlive)    | New    | |
+| [A_JumpIfTracerInSight](#A_JumpIfTracerInSight)| MBF21  | |
+| [A_JumpIfTracerCloser](#A_JumpIfTracerCloser)  | MBF21  | |
+| [A_JumpIfTracerAlive](#A_JumpIfTracerAlive)    | New    | |
+| [A_JumpIfHasPower](#A_JumpIfHasPower)          | New    | |
+| [A_JumpIfHasArtifact](#A_JumpIfHasArtifact)    | New    | |
+| [A_JumpIfHasKey](#A_JumpIfHasKey)              | New    | |
+| [A_JumpIfWeaponOwned](#A_JumpIfWeaponOwned)    | New    | |
+| [A_JumpIfWeaponUsable](#A_JumpIfWeaponUsable)  | New    | |
+| [A_JumpIfWeaponPiece](#A_JumpIfWeaponPiece)    | New    | |
 | [A_DeathBallBounceEX](#A_DeathBallBounceEX)    | New    | |
 | [A_TempestChain](#A_TempestChain)              | New    | |
 | [A_TempestSpray](#A_TempestSpray)              | New    | |
@@ -484,11 +501,14 @@
 | [A_TrollCharge](#A_TrollCharge)                | New    | |
 | [A_SuperDemonAttack1](#A_SuperDemonAttack1)    | New    | |
 | [A_SuperDemonAttack2](#A_SuperDemonAttack2)    | New    | |
+| [A_CheckThrowBomb2](#A_CheckThrowBomb2)        | New    | |
 | [A_ShedShardEX](#A_ShedShardEX)                | New    | |
 | [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)| New    | |
 | [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)  | New    | |
 | [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)| New    | |
 | [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | |
+| [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | |
+| [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | |
 
 ## States
 
@@ -703,10 +723,10 @@
 | A_FHammerAttack                        | Hexen             | |
 | A_FHammerThrow                         | Hexen             | |
 | A_FSwordAttack                         | Hexen             | |
-| [A_CMaceAttack](#A_CMaceAttack)        | Hexen - Modified  | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_CMaceAttack                          | Hexen             | |
 | A_CStaffInitBlink                      | Hexen             | |
 | A_CStaffCheckBlink                     | Hexen             | |
-| [A_CStaffCheck](#A_CStaffCheck)        | Hexen - Modified  | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_CStaffCheck                          | Hexen             | |
 | A_CStaffAttack                         | Hexen             | |
 | A_CFlameAttack                         | Hexen             | |
 | A_CHolyAttack                          | Hexen             | |
@@ -714,34 +734,47 @@
 | A_MWandAttack                          | Hexen             | |
 | A_LightningReady                       | Hexen             | |
 | A_MLightningAttack                     | Hexen             | |
-| [A_MStaffAttack](#A_MStaffAttack)      | Hexen - Modified  | Now has args for extended behavior; see "Actions (New)" tab for details |
+| A_MStaffAttack                         | Hexen             | |
 | A_MStaffPalette                        | Hexen             | |
 | A_FireConePL1                          | Hexen             | |
 
 ### Codepointers EX
 
-| Name                                         | Origin | Description |
-|----------------------------------------------|--------|-|
-| [A_WeaponSound](#A_WeaponSound)              | MBF21  | |
-| [A_WeaponProjectile](#A_WeaponProjectile)    | MBF21  | |
-| [A_WeaponBulletAttack](#A_WeaponBulletAttack)| MBF21  | |
-| [A_WeaponMeleeAttack](#A_WeaponMeleeAttack)  | MBF21  | |
-| [A_ConsumeAmmo](#A_ConsumeAmmo)              | MBF21  | |
-| [A_GauntletAttackEX](#A_GauntletAttackEX)    | New    | |
-| [A_FireGoldWandEX1](#A_FireGoldWandEX1)      | New    | |
-| [A_FireCrossbowEX1](#A_FireCrossbowEX1)      | New    | |
-| [A_FireCrossbowEX2](#A_FireCrossbowEX2)      | New    | |
-| [A_FireSkullRodEX1](#A_FireSkullRodEX1)      | New    | |
-| [A_FireSkullRodEX2](#A_FireSkullRodEX2)      | New    | |
-| [A_FirePhoenixEX2](#A_FirePhoenixEX2)        | New    | |
-| [A_FireMaceEX1](#A_FireMaceEX1)              | New    | |
-| [A_FireMaceEX2](#A_FireMaceEX2)              | New    | |
-| [A_FireTempestWandPL1](#A_FireTempestWandPL1)| New    | |
-| [A_CShieldParry](#A_CShieldParry)            | New    | |
-| [A_CShieldGuard](#A_CShieldGuard)            | New    | |
-| [A_CShieldLower](#A_CShieldLower)            | New    | |
-| [A_FireConeEX1](#A_FireConeEX1)              | New    | |
-| [A_MStaffAttackEX](#A_MStaffAttackEX)        | New    | |
+| Name                                                     | Origin | Description |
+|----------------------------------------------------------|--------|-|
+| [A_WeaponSound](#A_WeaponSound)                          | MBF21  | |
+| [A_WeaponProjectile](#A_WeaponProjectile)                | MBF21  | |
+| [A_WeaponBulletAttack](#A_WeaponBulletAttack)            | MBF21  | |
+| [A_WeaponMeleeAttack](#A_WeaponMeleeAttack)              | MBF21  | |
+| [A_WeaponJump](#A_WeaponJump)                            | MBF21  | |
+| [A_ConsumeAmmo](#A_ConsumeAmmo)                          | MBF21  | |
+| [A_CheckAmmo](#A_CheckAmmo)                              | MBF21  | |
+| [A_RefireTo](#A_RefireTo)                                | MBF21  | |
+| [A_GunFlashTo](#A_GunFlashTo)                            | MBF21  | |
+| [A_WeaponAlert](#A_WeaponAlert)                          | MBF21  | |
+| [A_WeaponJumpIfHasPower](#A_WeaponJumpIfHasPower)        | New    | |
+| [A_WeaponJumpIfHasArtifact](#A_WeaponJumpIfHasArtifact)  | New    | |
+| [A_WeaponJumpIfHasKey](#A_WeaponJumpIfHasKey)            | New    | |
+| [A_WeaponJumpIfWeaponOwned](#A_WeaponJumpIfWeaponOwned)  | New    | |
+| [A_WeaponJumpIfWeaponUsable](#A_WeaponJumpIfWeaponUsable)| New    | |
+| [A_WeaponJumpIfWeaponPiece](#A_WeaponJumpIfWeaponPiece)  | New    | |
+| [A_GauntletAttackEX](#A_GauntletAttackEX)                | New    | |
+| [A_FireGoldWandEX1](#A_FireGoldWandEX1)                  | New    | |
+| [A_FireCrossbowEX1](#A_FireCrossbowEX1)                  | New    | |
+| [A_FireCrossbowEX2](#A_FireCrossbowEX2)                  | New    | |
+| [A_FireSkullRodEX1](#A_FireSkullRodEX1)                  | New    | |
+| [A_FireSkullRodEX2](#A_FireSkullRodEX2)                  | New    | |
+| [A_FirePhoenixEX2](#A_FirePhoenixEX2)                    | New    | |
+| [A_FireMaceEX1](#A_FireMaceEX1)                          | New    | |
+| [A_FireMaceEX2](#A_FireMaceEX2)                          | New    | |
+| [A_FireTempestWandPL1](#A_FireTempestWandPL1)            | New    | |
+| [A_CMaceAttackEX](#A_CMaceAttackEX)                      | New    | |
+| [A_CShieldParry](#A_CShieldParry)                        | New    | |
+| [A_CShieldGuard](#A_CShieldGuard)                        | New    | |
+| [A_CShieldLower](#A_CShieldLower)                        | New    | |
+| [A_CStaffDrainEX](#A_CStaffDrainEX)                      | New    | |
+| [A_FireConeEX](#A_FireConeEX)                            | New    | |
+| [A_MStaffAttackEX](#A_MStaffAttackEX)                    | New    | |
 
 ## Ammo
 
@@ -1079,6 +1112,11 @@
   - Args:
   - Notes:
 
+- **A_Explode**<a id="A_Explode"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 - **A_FlyTarget**<a id="A_FlyTarget"></a>
   - Description:
   - Args:
@@ -1102,6 +1140,16 @@
   - Notes:
 
 - **A_RandomJump**<a id="A_RandomJump"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Die**<a id="A_Die"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_Stop**<a id="A_Stop"></a>
   - Description:
   - Args:
   - Notes:
@@ -1141,6 +1189,16 @@
   - Args:
   - Notes:
 
+- **A_NoiseAlert**<a id="A_NoiseAlert"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_HealChase**<a id="A_HealChase"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 - **A_SeekTracer**<a id="A_SeekTracer"></a>
   - Description:
   - Args:
@@ -1162,6 +1220,71 @@
   - Notes:
 
 - **A_MissileCountdown**<a id="A_MissileCountdown"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfHealthBelow**<a id="A_JumpIfHealthBelow"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTargetInSight**<a id="A_JumpIfTargetInSight"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTargetCloser**<a id="A_JumpIfTargetCloser"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTargetAlive**<a id="A_JumpIfTargetAlive"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTracerInSight**<a id="A_JumpIfTracerInSight"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTracerCloser**<a id="A_JumpIfTracerCloser"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfTracerAlive**<a id="A_JumpIfTracerAlive"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfHasPower**<a id="A_JumpIfHasPower"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfHasArtifact**<a id="A_JumpIfHasArtifact"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfHasKey**<a id="A_JumpIfHasKey"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfWeaponOwned**<a id="A_JumpIfWeaponOwned"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfWeaponUsable**<a id="A_JumpIfWeaponUsable"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_JumpIfWeaponPiece**<a id="A_JumpIfWeaponPiece"></a>
   - Description:
   - Args:
   - Notes:
@@ -1221,6 +1344,11 @@
   - Args:
   - Notes:
 
+- **A_CheckThrowBomb2**<a id="A_CheckThrowBomb2"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 - **A_ShedShardEX**<a id="A_ShedShardEX"></a>
   - Description:
   - Args:
@@ -1242,6 +1370,16 @@
   - Notes:
 
 - **A_CentaurAttack2EX**<a id="A_CentaurAttack2EX"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_SerpentHumpDecideEX**<a id="A_SerpentHumpDecideEX"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_BishopSpawnBlurEX**<a id="A_BishopSpawnBlurEX"></a>
   - Description:
   - Args:
   - Notes:
@@ -1273,21 +1411,6 @@
   - Args:
   - Notes:
 
-- **A_CMaceAttack**<a id="A_CMaceAttack"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_CStaffCheck**<a id="A_CStaffCheck"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_MStaffAttack**<a id="A_MStaffAttack"></a>
-  - Description:
-  - Args:
-  - Notes:
-
 ## Weapon Codepointer EX Overview
 
 - **A_WeaponSound**<a id="A_WeaponSound"></a>
@@ -1310,7 +1433,62 @@
   - Args:
   - Notes:
 
+- **A_WeaponJump**<a id="A_WeaponJump"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 - **A_ConsumeAmmo**<a id="A_ConsumeAmmo"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_CheckAmmo**<a id="A_CheckAmmo"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_RefireTo**<a id="A_RefireTo"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_GunFlashTo**<a id="A_GunFlashTo"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponAlert**<a id="A_WeaponAlert"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfHasPower**<a id="A_WeaponJumpIfHasPower"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfHasArtifact**<a id="A_WeaponJumpIfHasArtifact"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfHasKey**<a id="A_WeaponJumpIfHasKey"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfWeaponOwned**<a id="A_WeaponJumpIfWeaponOwned"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfWeaponUsable**<a id="A_WeaponJumpIfWeaponUsable"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_WeaponJumpIfWeaponPiece**<a id="A_WeaponJumpIfWeaponPiece"></a>
   - Description:
   - Args:
   - Notes:
@@ -1365,6 +1543,11 @@
   - Args:
   - Notes:
 
+- **A_CMaceAttackEX**<a id="A_CMaceAttackEX"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 - **A_CShieldParry**<a id="A_CShieldParry"></a>
   - Description:
   - Args:
@@ -1380,7 +1563,12 @@
   - Args:
   - Notes:
 
-- **A_FireConeEX1**<a id="A_FireConeEX1"></a>
+- **A_CStaffDrainEX**<a id="A_CStaffDrainEX"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FireConeEX**<a id="A_FireConeEX"></a>
   - Description:
   - Args:
   - Notes:

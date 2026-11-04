@@ -1117,722 +1117,722 @@ Brand-new actions defined by Raven EX.
 
 ## Actor Action Definitions
 
-- **A_ESound**<a id="A_ESound"></a>
+- **A_ESound**<a id="A_ESound" name="A_ESound"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_Explode**<a id="A_Explode"></a>
+- **A_Explode**<a id="A_Explode" name="A_Explode"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PlaySound**<a id="A_PlaySound"></a>
+- **A_PlaySound**<a id="A_PlaySound" name="A_PlaySound"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FaceTargetSound**<a id="A_FaceTargetSound"></a>
+- **A_FaceTargetSound**<a id="A_FaceTargetSound" name="A_FaceTargetSound"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RandomJump**<a id="A_RandomJump"></a>
+- **A_RandomJump**<a id="A_RandomJump" name="A_RandomJump"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_Die**<a id="A_Die"></a>
+- **A_Die**<a id="A_Die" name="A_Die"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_Stop**<a id="A_Stop"></a>
+- **A_Stop**<a id="A_Stop" name="A_Stop"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SpawnObject**<a id="A_SpawnObject"></a>
+- **A_SpawnObject**<a id="A_SpawnObject" name="A_SpawnObject"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MonsterProjectile**<a id="A_MonsterProjectile"></a>
+- **A_MonsterProjectile**<a id="A_MonsterProjectile" name="A_MonsterProjectile"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MonsterBulletAttack**<a id="A_MonsterBulletAttack"></a>
+- **A_MonsterBulletAttack**<a id="A_MonsterBulletAttack" name="A_MonsterBulletAttack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MonsterMeleeAttack**<a id="A_MonsterMeleeAttack"></a>
+- **A_MonsterMeleeAttack**<a id="A_MonsterMeleeAttack" name="A_MonsterMeleeAttack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MonsterComboAttack**<a id="A_MonsterComboAttack"></a>
+- **A_MonsterComboAttack**<a id="A_MonsterComboAttack" name="A_MonsterComboAttack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SpawnMinion**<a id="A_SpawnMinion"></a>
+- **A_SpawnMinion**<a id="A_SpawnMinion" name="A_SpawnMinion"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusDamage**<a id="A_RadiusDamage"></a>
+- **A_RadiusDamage**<a id="A_RadiusDamage" name="A_RadiusDamage"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_NoiseAlert**<a id="A_NoiseAlert"></a>
+- **A_NoiseAlert**<a id="A_NoiseAlert" name="A_NoiseAlert"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_HealChase**<a id="A_HealChase"></a>
+- **A_HealChase**<a id="A_HealChase" name="A_HealChase"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SeekTracer**<a id="A_SeekTracer"></a>
+- **A_SeekTracer**<a id="A_SeekTracer" name="A_SeekTracer"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FindTracer**<a id="A_FindTracer"></a>
+- **A_FindTracer**<a id="A_FindTracer" name="A_FindTracer"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ClearTracer**<a id="A_ClearTracer"></a>
+- **A_ClearTracer**<a id="A_ClearTracer" name="A_ClearTracer"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MissileExplode**<a id="A_MissileExplode"></a>
+- **A_MissileExplode**<a id="A_MissileExplode" name="A_MissileExplode"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MissileCountdown**<a id="A_MissileCountdown"></a>
+- **A_MissileCountdown**<a id="A_MissileCountdown" name="A_MissileCountdown"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfHealthBelow**<a id="A_JumpIfHealthBelow"></a>
+- **A_JumpIfHealthBelow**<a id="A_JumpIfHealthBelow" name="A_JumpIfHealthBelow"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTargetInSight**<a id="A_JumpIfTargetInSight"></a>
+- **A_JumpIfTargetInSight**<a id="A_JumpIfTargetInSight" name="A_JumpIfTargetInSight"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTargetCloser**<a id="A_JumpIfTargetCloser"></a>
+- **A_JumpIfTargetCloser**<a id="A_JumpIfTargetCloser" name="A_JumpIfTargetCloser"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTargetAlive**<a id="A_JumpIfTargetAlive"></a>
+- **A_JumpIfTargetAlive**<a id="A_JumpIfTargetAlive" name="A_JumpIfTargetAlive"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTracerInSight**<a id="A_JumpIfTracerInSight"></a>
+- **A_JumpIfTracerInSight**<a id="A_JumpIfTracerInSight" name="A_JumpIfTracerInSight"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTracerCloser**<a id="A_JumpIfTracerCloser"></a>
+- **A_JumpIfTracerCloser**<a id="A_JumpIfTracerCloser" name="A_JumpIfTracerCloser"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfTracerAlive**<a id="A_JumpIfTracerAlive"></a>
+- **A_JumpIfTracerAlive**<a id="A_JumpIfTracerAlive" name="A_JumpIfTracerAlive"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfHasPower**<a id="A_JumpIfHasPower"></a>
+- **A_JumpIfHasPower**<a id="A_JumpIfHasPower" name="A_JumpIfHasPower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfHasArtifact**<a id="A_JumpIfHasArtifact"></a>
+- **A_JumpIfHasArtifact**<a id="A_JumpIfHasArtifact" name="A_JumpIfHasArtifact"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfHasKey**<a id="A_JumpIfHasKey"></a>
+- **A_JumpIfHasKey**<a id="A_JumpIfHasKey" name="A_JumpIfHasKey"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfWeaponOwned**<a id="A_JumpIfWeaponOwned"></a>
+- **A_JumpIfWeaponOwned**<a id="A_JumpIfWeaponOwned" name="A_JumpIfWeaponOwned"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfWeaponUsable**<a id="A_JumpIfWeaponUsable"></a>
+- **A_JumpIfWeaponUsable**<a id="A_JumpIfWeaponUsable" name="A_JumpIfWeaponUsable"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_JumpIfWeaponPiece**<a id="A_JumpIfWeaponPiece"></a>
+- **A_JumpIfWeaponPiece**<a id="A_JumpIfWeaponPiece" name="A_JumpIfWeaponPiece"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_DeathBallBounceEX**<a id="A_DeathBallBounceEX"></a>
+- **A_DeathBallBounceEX**<a id="A_DeathBallBounceEX" name="A_DeathBallBounceEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_TempestChain**<a id="A_TempestChain"></a>
+- **A_TempestChain**<a id="A_TempestChain" name="A_TempestChain"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_TempestSpray**<a id="A_TempestSpray"></a>
+- **A_TempestSpray**<a id="A_TempestSpray" name="A_TempestSpray"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_KnightAttackEX**<a id="A_KnightAttackEX"></a>
+- **A_KnightAttackEX**<a id="A_KnightAttackEX" name="A_KnightAttackEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ClinkRushEX**<a id="A_ClinkRushEX"></a>
+- **A_ClinkRushEX**<a id="A_ClinkRushEX" name="A_ClinkRushEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ClinkAttackEX**<a id="A_ClinkAttackEX"></a>
+- **A_ClinkAttackEX**<a id="A_ClinkAttackEX" name="A_ClinkAttackEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MinotaurMeleeEX**<a id="A_MinotaurMeleeEX"></a>
+- **A_MinotaurMeleeEX**<a id="A_MinotaurMeleeEX" name="A_MinotaurMeleeEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_TrollChargeStart**<a id="A_TrollChargeStart"></a>
+- **A_TrollChargeStart**<a id="A_TrollChargeStart" name="A_TrollChargeStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_TrollCharge**<a id="A_TrollCharge"></a>
+- **A_TrollCharge**<a id="A_TrollCharge" name="A_TrollCharge"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SuperDemonAttack1**<a id="A_SuperDemonAttack1"></a>
+- **A_SuperDemonAttack1**<a id="A_SuperDemonAttack1" name="A_SuperDemonAttack1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SuperDemonAttack2**<a id="A_SuperDemonAttack2"></a>
+- **A_SuperDemonAttack2**<a id="A_SuperDemonAttack2" name="A_SuperDemonAttack2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CheckThrowBomb2**<a id="A_CheckThrowBomb2"></a>
+- **A_CheckThrowBomb2**<a id="A_CheckThrowBomb2" name="A_CheckThrowBomb2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ShedShardEX**<a id="A_ShedShardEX"></a>
+- **A_ShedShardEX**<a id="A_ShedShardEX" name="A_ShedShardEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CentaurEXGuardRaise**<a id="A_CentaurEXGuardRaise"></a>
+- **A_CentaurEXGuardRaise**<a id="A_CentaurEXGuardRaise" name="A_CentaurEXGuardRaise"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CentaurEXGuardHold**<a id="A_CentaurEXGuardHold"></a>
+- **A_CentaurEXGuardHold**<a id="A_CentaurEXGuardHold" name="A_CentaurEXGuardHold"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CentaurEXGuardLower**<a id="A_CentaurEXGuardLower"></a>
+- **A_CentaurEXGuardLower**<a id="A_CentaurEXGuardLower" name="A_CentaurEXGuardLower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CentaurAttack2EX**<a id="A_CentaurAttack2EX"></a>
+- **A_CentaurAttack2EX**<a id="A_CentaurAttack2EX" name="A_CentaurAttack2EX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_SerpentHumpDecideEX**<a id="A_SerpentHumpDecideEX"></a>
+- **A_SerpentHumpDecideEX**<a id="A_SerpentHumpDecideEX" name="A_SerpentHumpDecideEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_BishopSpawnBlurEX**<a id="A_BishopSpawnBlurEX"></a>
+- **A_BishopSpawnBlurEX**<a id="A_BishopSpawnBlurEX" name="A_BishopSpawnBlurEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FlyTarget**<a id="A_FlyTarget"></a>
+- **A_FlyTarget**<a id="A_FlyTarget" name="A_FlyTarget"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FlyChase**<a id="A_FlyChase"></a>
+- **A_FlyChase**<a id="A_FlyChase" name="A_FlyChase"></a>
   - Description:
   - Args:
   - Notes:
 
 ## Weapon Action Definitions
 
-- **A_WeaponSound**<a id="A_WeaponSound"></a>
+- **A_WeaponSound**<a id="A_WeaponSound" name="A_WeaponSound"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponProjectile**<a id="A_WeaponProjectile"></a>
+- **A_WeaponProjectile**<a id="A_WeaponProjectile" name="A_WeaponProjectile"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponBulletAttack**<a id="A_WeaponBulletAttack"></a>
+- **A_WeaponBulletAttack**<a id="A_WeaponBulletAttack" name="A_WeaponBulletAttack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponMeleeAttack**<a id="A_WeaponMeleeAttack"></a>
+- **A_WeaponMeleeAttack**<a id="A_WeaponMeleeAttack" name="A_WeaponMeleeAttack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJump**<a id="A_WeaponJump"></a>
+- **A_WeaponJump**<a id="A_WeaponJump" name="A_WeaponJump"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ConsumeAmmo**<a id="A_ConsumeAmmo"></a>
+- **A_ConsumeAmmo**<a id="A_ConsumeAmmo" name="A_ConsumeAmmo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CheckAmmo**<a id="A_CheckAmmo"></a>
+- **A_CheckAmmo**<a id="A_CheckAmmo" name="A_CheckAmmo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RefireTo**<a id="A_RefireTo"></a>
+- **A_RefireTo**<a id="A_RefireTo" name="A_RefireTo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_GunFlashTo**<a id="A_GunFlashTo"></a>
+- **A_GunFlashTo**<a id="A_GunFlashTo" name="A_GunFlashTo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponAlert**<a id="A_WeaponAlert"></a>
+- **A_WeaponAlert**<a id="A_WeaponAlert" name="A_WeaponAlert"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfHasPower**<a id="A_WeaponJumpIfHasPower"></a>
+- **A_WeaponJumpIfHasPower**<a id="A_WeaponJumpIfHasPower" name="A_WeaponJumpIfHasPower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfHasArtifact**<a id="A_WeaponJumpIfHasArtifact"></a>
+- **A_WeaponJumpIfHasArtifact**<a id="A_WeaponJumpIfHasArtifact" name="A_WeaponJumpIfHasArtifact"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfHasKey**<a id="A_WeaponJumpIfHasKey"></a>
+- **A_WeaponJumpIfHasKey**<a id="A_WeaponJumpIfHasKey" name="A_WeaponJumpIfHasKey"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfWeaponOwned**<a id="A_WeaponJumpIfWeaponOwned"></a>
+- **A_WeaponJumpIfWeaponOwned**<a id="A_WeaponJumpIfWeaponOwned" name="A_WeaponJumpIfWeaponOwned"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfWeaponUsable**<a id="A_WeaponJumpIfWeaponUsable"></a>
+- **A_WeaponJumpIfWeaponUsable**<a id="A_WeaponJumpIfWeaponUsable" name="A_WeaponJumpIfWeaponUsable"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_WeaponJumpIfWeaponPiece**<a id="A_WeaponJumpIfWeaponPiece"></a>
+- **A_WeaponJumpIfWeaponPiece**<a id="A_WeaponJumpIfWeaponPiece" name="A_WeaponJumpIfWeaponPiece"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_GauntletAttackEX**<a id="A_GauntletAttackEX"></a>
+- **A_GauntletAttackEX**<a id="A_GauntletAttackEX" name="A_GauntletAttackEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireGoldWandEX1**<a id="A_FireGoldWandEX1"></a>
+- **A_FireGoldWandEX1**<a id="A_FireGoldWandEX1" name="A_FireGoldWandEX1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireCrossbowEX1**<a id="A_FireCrossbowEX1"></a>
+- **A_FireCrossbowEX1**<a id="A_FireCrossbowEX1" name="A_FireCrossbowEX1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireCrossbowEX2**<a id="A_FireCrossbowEX2"></a>
+- **A_FireCrossbowEX2**<a id="A_FireCrossbowEX2" name="A_FireCrossbowEX2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireSkullRodEX1**<a id="A_FireSkullRodEX1"></a>
+- **A_FireSkullRodEX1**<a id="A_FireSkullRodEX1" name="A_FireSkullRodEX1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireSkullRodEX2**<a id="A_FireSkullRodEX2"></a>
+- **A_FireSkullRodEX2**<a id="A_FireSkullRodEX2" name="A_FireSkullRodEX2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FirePhoenixEX2**<a id="A_FirePhoenixEX2"></a>
+- **A_FirePhoenixEX2**<a id="A_FirePhoenixEX2" name="A_FirePhoenixEX2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireMaceEX1**<a id="A_FireMaceEX1"></a>
+- **A_FireMaceEX1**<a id="A_FireMaceEX1" name="A_FireMaceEX1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireMaceEX2**<a id="A_FireMaceEX2"></a>
+- **A_FireMaceEX2**<a id="A_FireMaceEX2" name="A_FireMaceEX2"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireTempestWandPL1**<a id="A_FireTempestWandPL1"></a>
+- **A_FireTempestWandPL1**<a id="A_FireTempestWandPL1" name="A_FireTempestWandPL1"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckUp**<a id="A_FAxeCheckUp"></a>
+- **A_FAxeCheckUp**<a id="A_FAxeCheckUp" name="A_FAxeCheckUp"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckUpG**<a id="A_FAxeCheckUpG"></a>
+- **A_FAxeCheckUpG**<a id="A_FAxeCheckUpG" name="A_FAxeCheckUpG"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckReady**<a id="A_FAxeCheckReady"></a>
+- **A_FAxeCheckReady**<a id="A_FAxeCheckReady" name="A_FAxeCheckReady"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckReadyG**<a id="A_FAxeCheckReadyG"></a>
+- **A_FAxeCheckReadyG**<a id="A_FAxeCheckReadyG" name="A_FAxeCheckReadyG"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckAtk**<a id="A_FAxeCheckAtk"></a>
+- **A_FAxeCheckAtk**<a id="A_FAxeCheckAtk" name="A_FAxeCheckAtk"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CMaceAttackEX**<a id="A_CMaceAttackEX"></a>
+- **A_CMaceAttackEX**<a id="A_CMaceAttackEX" name="A_CMaceAttackEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CShieldParry**<a id="A_CShieldParry"></a>
+- **A_CShieldParry**<a id="A_CShieldParry" name="A_CShieldParry"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CShieldGuard**<a id="A_CShieldGuard"></a>
+- **A_CShieldGuard**<a id="A_CShieldGuard" name="A_CShieldGuard"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CShieldLower**<a id="A_CShieldLower"></a>
+- **A_CShieldLower**<a id="A_CShieldLower" name="A_CShieldLower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_CStaffDrainEX**<a id="A_CStaffDrainEX"></a>
+- **A_CStaffDrainEX**<a id="A_CStaffDrainEX" name="A_CStaffDrainEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FireConeEX**<a id="A_FireConeEX"></a>
+- **A_FireConeEX**<a id="A_FireConeEX" name="A_FireConeEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_MStaffAttackEX**<a id="A_MStaffAttackEX"></a>
+- **A_MStaffAttackEX**<a id="A_MStaffAttackEX" name="A_MStaffAttackEX"></a>
   - Description:
   - Args:
   - Notes:
 
 ## Playerclass Action Definitions
 
-- **A_InvulnStandardStart**<a id="A_InvulnStandardStart"></a>
+- **A_InvulnStandardStart**<a id="A_InvulnStandardStart" name="A_InvulnStandardStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnStandardEnd**<a id="A_InvulnStandardEnd"></a>
+- **A_InvulnStandardEnd**<a id="A_InvulnStandardEnd" name="A_InvulnStandardEnd"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnPhasedTick**<a id="A_InvulnPhasedTick"></a>
+- **A_InvulnPhasedTick**<a id="A_InvulnPhasedTick" name="A_InvulnPhasedTick"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnPhasedDraw**<a id="A_InvulnPhasedDraw"></a>
+- **A_InvulnPhasedDraw**<a id="A_InvulnPhasedDraw" name="A_InvulnPhasedDraw"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnPhasedEnd**<a id="A_InvulnPhasedEnd"></a>
+- **A_InvulnPhasedEnd**<a id="A_InvulnPhasedEnd" name="A_InvulnPhasedEnd"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnReflectiveStart**<a id="A_InvulnReflectiveStart"></a>
+- **A_InvulnReflectiveStart**<a id="A_InvulnReflectiveStart" name="A_InvulnReflectiveStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_InvulnReflectiveEnd**<a id="A_InvulnReflectiveEnd"></a>
+- **A_InvulnReflectiveEnd**<a id="A_InvulnReflectiveEnd" name="A_InvulnReflectiveEnd"></a>
   - Description:
   - Args:
   - Notes:
 
 ## Pickup Action Definitions
 
-- **A_PickupHealth**<a id="A_PickupHealth"></a>
+- **A_PickupHealth**<a id="A_PickupHealth" name="A_PickupHealth"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupBasicArmor**<a id="A_PickupBasicArmor"></a>
+- **A_PickupBasicArmor**<a id="A_PickupBasicArmor" name="A_PickupBasicArmor"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupHexenArmor**<a id="A_PickupHexenArmor"></a>
+- **A_PickupHexenArmor**<a id="A_PickupHexenArmor" name="A_PickupHexenArmor"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupBackpack**<a id="A_PickupBackpack"></a>
+- **A_PickupBackpack**<a id="A_PickupBackpack" name="A_PickupBackpack"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupWeapon**<a id="A_PickupWeapon"></a>
+- **A_PickupWeapon**<a id="A_PickupWeapon" name="A_PickupWeapon"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupWeaponPiece**<a id="A_PickupWeaponPiece"></a>
+- **A_PickupWeaponPiece**<a id="A_PickupWeaponPiece" name="A_PickupWeaponPiece"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupAmmo**<a id="A_PickupAmmo"></a>
+- **A_PickupAmmo**<a id="A_PickupAmmo" name="A_PickupAmmo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupDualAmmo**<a id="A_PickupDualAmmo"></a>
+- **A_PickupDualAmmo**<a id="A_PickupDualAmmo" name="A_PickupDualAmmo"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupPower**<a id="A_PickupPower"></a>
+- **A_PickupPower**<a id="A_PickupPower" name="A_PickupPower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupArtifact**<a id="A_PickupArtifact"></a>
+- **A_PickupArtifact**<a id="A_PickupArtifact" name="A_PickupArtifact"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PickupKey**<a id="A_PickupKey"></a>
+- **A_PickupKey**<a id="A_PickupKey" name="A_PickupKey"></a>
   - Description:
   - Args:
   - Notes:
 
 ## Power Action Definitions
 
-- **A_PowerInvulnerableStart**<a id="A_PowerInvulnerableStart"></a>
+- **A_PowerInvulnerableStart**<a id="A_PowerInvulnerableStart" name="A_PowerInvulnerableStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerInvulnerableTick**<a id="A_PowerInvulnerableTick"></a>
+- **A_PowerInvulnerableTick**<a id="A_PowerInvulnerableTick" name="A_PowerInvulnerableTick"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerInvulnerableEnd**<a id="A_PowerInvulnerableEnd"></a>
+- **A_PowerInvulnerableEnd**<a id="A_PowerInvulnerableEnd" name="A_PowerInvulnerableEnd"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerInvisibilityStart**<a id="A_PowerInvisibilityStart"></a>
+- **A_PowerInvisibilityStart**<a id="A_PowerInvisibilityStart" name="A_PowerInvisibilityStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerInvisibilityEnd**<a id="A_PowerInvisibilityEnd"></a>
+- **A_PowerInvisibilityEnd**<a id="A_PowerInvisibilityEnd" name="A_PowerInvisibilityEnd"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerStrengthStart**<a id="A_PowerStrengthStart"></a>
+- **A_PowerStrengthStart**<a id="A_PowerStrengthStart" name="A_PowerStrengthStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerFlightStart**<a id="A_PowerFlightStart"></a>
+- **A_PowerFlightStart**<a id="A_PowerFlightStart" name="A_PowerFlightStart"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerFlightEnd**<a id="A_PowerFlightEnd"></a>
+- **A_PowerFlightEnd**<a id="A_PowerFlightEnd" name="A_PowerFlightEnd"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerWeaponLevel2Start**<a id="A_PowerWeaponLevel2Start"></a>
+- **A_PowerWeaponLevel2Start**<a id="A_PowerWeaponLevel2Start" name="A_PowerWeaponLevel2Start"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_PowerWeaponLevel2End**<a id="A_PowerWeaponLevel2End"></a>
+- **A_PowerWeaponLevel2End**<a id="A_PowerWeaponLevel2End" name="A_PowerWeaponLevel2End"></a>
   - Description:
   - Args:
   - Notes:
 
 ## Artifact Action Definitions
 
-- **A_ArtiGivePower**<a id="A_ArtiGivePower"></a>
+- **A_ArtiGivePower**<a id="A_ArtiGivePower" name="A_ArtiGivePower"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiHealth**<a id="A_ArtiHealth"></a>
+- **A_ArtiHealth**<a id="A_ArtiHealth" name="A_ArtiHealth"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiEgg**<a id="A_ArtiEgg"></a>
+- **A_ArtiEgg**<a id="A_ArtiEgg" name="A_ArtiEgg"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiSummon**<a id="A_ArtiSummon"></a>
+- **A_ArtiSummon**<a id="A_ArtiSummon" name="A_ArtiSummon"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiTeleport**<a id="A_ArtiTeleport"></a>
+- **A_ArtiTeleport**<a id="A_ArtiTeleport" name="A_ArtiTeleport"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiTeleportOther**<a id="A_ArtiTeleportOther"></a>
+- **A_ArtiTeleportOther**<a id="A_ArtiTeleportOther" name="A_ArtiTeleportOther"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiBoostMana**<a id="A_ArtiBoostMana"></a>
+- **A_ArtiBoostMana**<a id="A_ArtiBoostMana" name="A_ArtiBoostMana"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiBoostArmor**<a id="A_ArtiBoostArmor"></a>
+- **A_ArtiBoostArmor**<a id="A_ArtiBoostArmor" name="A_ArtiBoostArmor"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiBlastRadius**<a id="A_ArtiBlastRadius"></a>
+- **A_ArtiBlastRadius**<a id="A_ArtiBlastRadius" name="A_ArtiBlastRadius"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiFlechette**<a id="A_ArtiFlechette"></a>
+- **A_ArtiFlechette**<a id="A_ArtiFlechette" name="A_ArtiFlechette"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiThrowingBomb**<a id="A_ArtiThrowingBomb"></a>
+- **A_ArtiThrowingBomb**<a id="A_ArtiThrowingBomb" name="A_ArtiThrowingBomb"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiThrowingBombEX**<a id="A_ArtiThrowingBombEX"></a>
+- **A_ArtiThrowingBombEX**<a id="A_ArtiThrowingBombEX" name="A_ArtiThrowingBombEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiPoisonBag**<a id="A_ArtiPoisonBag"></a>
+- **A_ArtiPoisonBag**<a id="A_ArtiPoisonBag" name="A_ArtiPoisonBag"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiFireBomb**<a id="A_ArtiFireBomb"></a>
+- **A_ArtiFireBomb**<a id="A_ArtiFireBomb" name="A_ArtiFireBomb"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiHealingRadius**<a id="A_ArtiHealingRadius"></a>
+- **A_ArtiHealingRadius**<a id="A_ArtiHealingRadius" name="A_ArtiHealingRadius"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusGiveArmor**<a id="A_RadiusGiveArmor"></a>
+- **A_RadiusGiveArmor**<a id="A_RadiusGiveArmor" name="A_RadiusGiveArmor"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusGiveArmorEX**<a id="A_RadiusGiveArmorEX"></a>
+- **A_RadiusGiveArmorEX**<a id="A_RadiusGiveArmorEX" name="A_RadiusGiveArmorEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusGiveHealth**<a id="A_RadiusGiveHealth"></a>
+- **A_RadiusGiveHealth**<a id="A_RadiusGiveHealth" name="A_RadiusGiveHealth"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusGiveMana**<a id="A_RadiusGiveMana"></a>
+- **A_RadiusGiveMana**<a id="A_RadiusGiveMana" name="A_RadiusGiveMana"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_RadiusGiveManaEX**<a id="A_RadiusGiveManaEX"></a>
+- **A_RadiusGiveManaEX**<a id="A_RadiusGiveManaEX" name="A_RadiusGiveManaEX"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_ArtiPuzzleItem**<a id="A_ArtiPuzzleItem"></a>
+- **A_ArtiPuzzleItem**<a id="A_ArtiPuzzleItem" name="A_ArtiPuzzleItem"></a>
   - Description:
   - Args:
   - Notes:

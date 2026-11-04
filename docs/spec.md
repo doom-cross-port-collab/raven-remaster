@@ -454,8 +454,6 @@ Actions (a.k.a. 'codepointers') from the base vanilla games. Unless otherwise me
 | A_BatSpawnInit             | Hexen              | |
 | A_BatSpawn                 | Hexen              | |
 | A_BatMove                  | Hexen              | |
-| [A_FlyTarget](#A_FlyTarget)| New                | Likely identical to GZDoom's A_FlySearch; name taken from original source code |
-| [A_FlyChase](#A_FlyChase)  | New                | Likely identical to GZDoom's A_FlyBuzz; name taken from original source code |
 
 
 ### Actions - Extended
@@ -515,6 +513,8 @@ Brand-new actions defined by Raven EX.
 | [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | |
 | [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | |
 | [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | |
+| [A_FlyTarget](#A_FlyTarget)                    | New    | Same behavior as GZDoom's A_FlySearch; name taken from original source code |
+| [A_FlyChase](#A_FlyChase)                      | New    | Same behavior as GZDoom's A_FlyBuzz; name taken from original source code |
 
 ## States
 
@@ -721,11 +721,6 @@ Actions (a.k.a. 'codepointers') from the base vanilla games. Unless otherwise me
 | A_FireCrossbowPL1                      | Heretic           | |
 | A_FireCrossbowPL2                      | Heretic           | |
 | A_FPunchAttack                         | Hexen             | |
-| [A_FAxeCheckUp](#A_FAxeCheckUp)        | New               | Identical to GZDoom's function of the same name. |
-| [A_FAxeCheckUpG](#A_FAxeCheckUpG)      | New               | Identical to GZDoom's function of the same name. |
-| [A_FAxeCheckReady](#A_FAxeCheckReady)  | New               | Identical to GZDoom's function of the same name. |
-| [A_FAxeCheckReadyG](#A_FAxeCheckReadyG)| New               | Identical to GZDoom's function of the same name. |
-| [A_FAxeCheckAtk](#A_FAxeCheckAtk)      | New               | Identical to GZDoom's function of the same name. |
 | A_FAxeAttack                           | Hexen             | |
 | A_SnoutAttack                          | Hexen             | |
 | A_FHammerAttack                        | Hexen             | |
@@ -778,6 +773,11 @@ Brand-new actions defined by Raven EX.
 | [A_FireMaceEX1](#A_FireMaceEX1)                          | New    | |
 | [A_FireMaceEX2](#A_FireMaceEX2)                          | New    | |
 | [A_FireTempestWandPL1](#A_FireTempestWandPL1)            | New    | |
+| [A_FAxeCheckUp](#A_FAxeCheckUp)                          | New    | Same behavior as GZDoom's function of the same name. |
+| [A_FAxeCheckUpG](#A_FAxeCheckUpG)                        | New    | Same behavior as GZDoom's function of the same name. |
+| [A_FAxeCheckReady](#A_FAxeCheckReady)                    | New    | Same behavior as GZDoom's function of the same name. |
+| [A_FAxeCheckReadyG](#A_FAxeCheckReadyG)                  | New    | Same behavior as GZDoom's function of the same name. |
+| [A_FAxeCheckAtk](#A_FAxeCheckAtk)                        | New    | Same behavior as GZDoom's function of the same name. |
 | [A_CMaceAttackEX](#A_CMaceAttackEX)                      | New    | |
 | [A_CShieldParry](#A_CShieldParry)                        | New    | |
 | [A_CShieldGuard](#A_CShieldGuard)                        | New    | |
@@ -1127,17 +1127,6 @@ Brand-new actions defined by Raven EX.
   - Args:
   - Notes:
 
-- **A_FlyTarget**<a id="A_FlyTarget"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_FlyChase**<a id="A_FlyChase"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-
 - **A_PlaySound**<a id="A_PlaySound"></a>
   - Description:
   - Args:
@@ -1393,29 +1382,12 @@ Brand-new actions defined by Raven EX.
   - Args:
   - Notes:
 
-## Weapon Codepointer Overview
-
-- **A_FAxeCheckUp**<a id="A_FAxeCheckUp"></a>
+- **A_FlyTarget**<a id="A_FlyTarget"></a>
   - Description:
   - Args:
   - Notes:
 
-- **A_FAxeCheckUpG**<a id="A_FAxeCheckUpG"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_FAxeCheckReady**<a id="A_FAxeCheckReady"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_FAxeCheckReadyG**<a id="A_FAxeCheckReadyG"></a>
-  - Description:
-  - Args:
-  - Notes:
-
-- **A_FAxeCheckAtk**<a id="A_FAxeCheckAtk"></a>
+- **A_FlyChase**<a id="A_FlyChase"></a>
   - Description:
   - Args:
   - Notes:
@@ -1548,6 +1520,31 @@ Brand-new actions defined by Raven EX.
   - Notes:
 
 - **A_FireTempestWandPL1**<a id="A_FireTempestWandPL1"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckUp**<a id="A_FAxeCheckUp"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckUpG**<a id="A_FAxeCheckUpG"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckReady**<a id="A_FAxeCheckReady"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckReadyG**<a id="A_FAxeCheckReadyG"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_FAxeCheckAtk**<a id="A_FAxeCheckAtk"></a>
   - Description:
   - Args:
   - Notes:

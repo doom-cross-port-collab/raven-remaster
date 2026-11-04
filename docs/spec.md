@@ -1,6 +1,8 @@
 # Raven EX Specification
 
-## Things / actors
+## Actors
+
+Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' in virtually every other game engine.
 
 ### Properties
 
@@ -163,7 +165,9 @@
 | RANDOMACTIVESOUND   | New      | actor will randomly play its seesound instead of its activesound, 50% of the time (previously hardcoded to Wizard/Bishop/Pig) |
 | NOFLYOVER           | New      | actors with this flag will not attempt to fly over each other even if the PASSMOBJ flag is set (previously hardcoded to Gargoyle/Wizard) |
 
-### Codepointer
+### Actions - Base
+
+Actions (a.k.a. 'codepointers') from the base vanilla games. Unless otherwise mentioned, these functions behave identically to their vanilla counterparts.
 
 | Name                       | Origin             | Description |
 |----------------------------|--------------------|-------------|
@@ -454,7 +458,9 @@
 | [A_FlyChase](#A_FlyChase)  | New                | Likely identical to GZDoom's A_FlyBuzz; name taken from original source code |
 
 
-## Codepointers EX
+### Actions - Extended
+
+Brand-new actions defined by Raven EX.
 
 | Name                                           | Origin | Description |
 |------------------------------------------------|--------|-------------|
@@ -612,7 +618,7 @@
 | AUTOUSEHEALTH  | New    | Allow auto-use health |
 | CHICKENTWITCH  | New    | Does involuntary chicken actions, such as twitching, jumping, and making noise. |
 
-### Codepointers EX
+### Actions
 
 | Name                                               | Origin | Description |
 |----------------------------------------------------|--------|-------------|
@@ -680,7 +686,9 @@
 | NODMGTHRUST     | New      | [XA] TODO: this is a silly partial duplicate of MF_NOTHRUST; I need to remove this Kex-side :P |
 | AUTOAIMFARTHEST | New      | autoaim prioritizes the farthest enemy, rather than the nearest |
 
-### Codepointers
+### Actions - Base
+
+Actions (a.k.a. 'codepointers') from the base vanilla games. Unless otherwise mentioned, these functions behave identically to their vanilla counterparts.
 
 | Name                                   | Origin            | Description |
 |----------------------------------------|-------------------|-|
@@ -738,7 +746,9 @@
 | A_MStaffPalette                        | Hexen             | |
 | A_FireConePL1                          | Hexen             | |
 
-### Codepointers EX
+### Actions - Extended
+
+Brand-new actions defined by Raven EX.
 
 | Name                                                     | Origin | Description |
 |----------------------------------------------------------|--------|-|
@@ -852,7 +862,7 @@
 | ARTIFLASH       | New    | pickup mobj plays the artifact flash animation on pickup, instead of removing the mobj. |
 | INSTANCED       | New    | pickup is instanced for each player in multiplayer modes -- this is a Kex multiplayer feature; something nice to have for other MP ports but they gotta implement it first |
 
-### Codepointers EX
+### Actions
 
 | Name                                       | Origin | Description |
 |--------------------------------------------|--------|-------------|
@@ -893,7 +903,7 @@
 | addflags              | power flags  | |
 | removeflags           | power flags  | |
 
-### Codepointers EX
+### Actions
 
 | Name                                                 | Origin | Description |
 |------------------------------------------------------|--------|-------------|
@@ -932,7 +942,7 @@
 | AUTOUSE_HEALTH_BABY | New    | automatically-used health on baby difficulty |
 | AUTOUSE_HEALTH_DM   | New    | automatically-used health artifact on deathmath |
 
-### Codepointers EX
+### Actions
 
 | Name                                         | Origin | Description |
 |----------------------------------------------|--------|-------------|
@@ -1105,7 +1115,7 @@
 | teleport_destination   | Teleport destination                            | |
 | bridge                 | Bridge thing that spawns glitter objects        | |
 
-## Actor Codepointer Overview
+## Actor Action Definitions
 
 - **A_ESound**<a id="A_ESound"></a>
   - Description:
@@ -1127,7 +1137,6 @@
   - Args:
   - Notes:
 
-## Actor Codepointer EX Overview
 
 - **A_PlaySound**<a id="A_PlaySound"></a>
   - Description:
@@ -1411,7 +1420,7 @@
   - Args:
   - Notes:
 
-## Weapon Codepointer EX Overview
+## Weapon Action Definitions
 
 - **A_WeaponSound**<a id="A_WeaponSound"></a>
   - Description:
@@ -1578,7 +1587,8 @@
   - Args:
   - Notes:
 
-## Pickup Codepointer EX Overview
+## Pickup Action Definitions
+
 - **A_PickupHealth**<a id="A_PickupHealth"></a>
   - Description:
   - Args:
@@ -1634,7 +1644,7 @@
   - Args:
   - Notes:
 
-## Power Codepointer EX Overview
+## Power Action Definitions
 
 - **A_PowerInvulnerableStart**<a id="A_PowerInvulnerableStart"></a>
   - Description:
@@ -1686,7 +1696,7 @@
   - Args:
   - Notes:
 
-## Artifact Codepointer EX Overview
+## Artifact Action Definitions
 
 - **A_ArtiGivePower**<a id="A_ArtiGivePower"></a>
   - Description:

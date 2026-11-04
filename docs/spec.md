@@ -88,7 +88,7 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | TELEPORT            | Vanilla  | `TODO-FLAG-DESC` |
 | MISSILE             | Vanilla  | `TODO-FLAG-DESC` |
 | DROPPED             | Vanilla  | `TODO-FLAG-DESC` |
-| SHADOW              | Vanilla  | Actor is translucent _and_ a ghost. Effectively a combo of GZDoom's SHADOW flag, GHOST flag, and Renderstyle "Translucent" using the main translucency percent values (i.e. in GZDoom, HR_SHADOW and HX_SHADOW) |
+| SHADOW              | Vanilla  | Actor is translucent _and_ a ghost. Effectively a combo of ZDoom's SHADOW flag, GHOST flag, and Renderstyle "Translucent" using the main translucency percent values (i.e. in ZDoom, HR_SHADOW and HX_SHADOW) |
 | NOBLOOD             | Vanilla  | `TODO-FLAG-DESC` |
 | CORPSE              | Vanilla  | `TODO-FLAG-DESC` |
 | INFLOAT             | Vanilla  | `TODO-FLAG-DESC` |
@@ -98,10 +98,10 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | NOTDMATCH           | Vanilla  | `TODO-FLAG-DESC` |
 | TRANSLATION         | Reserved | N/A -- reserved, but unimplemented |
 | TRANSLATION2        | Reserved | N/A -- reserved, but unimplemented |
-| TOUCHY              | MBF      | Actor dies when touched; same semantics as GZDoom |
+| TOUCHY              | MBF      | Actor dies when touched; same semantics as ZDoom |
 | BOUNCES             | Reserved | N/A -- reserved, but unimplemented |
 | FRIEND              | Reserved | N/A -- reserved, but unimplemented |
-| TRANSLUCENT         | Boom     | Actor is translucent, using the main translucency percent values (i.e. in GZDoom, HR_SHADOW and HX_SHADOW) -- this flag does not imply projectile inaccuracy or ghost behavior. |
+| TRANSLUCENT         | Boom     | Actor is translucent, using the main translucency percent values (i.e. in ZDoom, HR_SHADOW and HX_SHADOW) -- this flag does not imply projectile inaccuracy or ghost behavior. |
 | LOGRAV              | Vanilla  | alternate gravity setting |
 | WINDTHRUST          | Vanilla  | gets pushed around by the wind specials |
 | FLOORBOUNCE         | Vanilla  | bounces off the floor |
@@ -112,12 +112,12 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | NOTELEPORT          | Vanilla  | does not teleport |
 | RIP                 | Vanilla  | missile rips through solid targets |
 | PUSHABLE            | Vanilla  | can be pushed by other moving mobjs |
-| SLIDE               | Vanilla  | slides against walls (e.g. GZDoom's SLIDESONWALLS flag) |
+| SLIDE               | Vanilla  | slides against walls (e.g. ZDoom's SLIDESONWALLS flag) |
 | ONMOBJ              | Vanilla  | mobj is resting on top of another mobj |
 | PASSMOBJ            | Vanilla  | Enable z block checking.  If on, this flag will allow the mobj to pass over/under other mobjs. |
 | CANNOTPUSH          | Vanilla  | cannot push other pushable mobjs |
-| SLIDEONACTORS       | New      | slides against other actors. in vanilla, Hexen actors have both SLIDE and SLIDEONACTORS, while Heretic just has SLIDE -- does GZDoom disambiguate? |
-| BOSS                | Vanilla  | mobj is a major boss (lots of internal checks on this for various shenanigans; should be same as GZDoom) |
+| SLIDEONACTORS       | New      | slides against other actors. in vanilla, Hexen actors have both SLIDE and SLIDEONACTORS, while Heretic just has SLIDE -- does ZDoom disambiguate? |
+| BOSS                | Vanilla  | mobj is a major boss (lots of internal checks on this for various shenanigans; should be same as ZDoom) |
 | FIREDAMAGE          | Vanilla  | does fire damage |
 | NODMGTHRUST         | Vanilla  | does not thrust target when damaging |
 | TELESTOMP           | Vanilla  | mobj can stomp another |
@@ -125,8 +125,8 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | DONTDRAW            | Vanilla  | don't generate a vissprite |
 | IMPACT              | Vanilla  | an MF_MISSILE mobj can activate SPAC_IMPACT |
 | PUSHWALL            | Vanilla  | mobj can push walls |
-| MCROSS              | Vanilla  | can activate monster cross lines; same as GZDoom's "ACTIVATEMCROSS" |
-| PCROSS              | Vanilla  | can activate projectile cross lines; same as GZDoom's "ACTIVATEPCROSS" |
+| MCROSS              | Vanilla  | can activate monster cross lines; same as ZDoom's "ACTIVATEMCROSS" |
+| PCROSS              | Vanilla  | can activate projectile cross lines; same as ZDoom's "ACTIVATEPCROSS" |
 | CANTLEAVEFLOORPIC   | Vanilla  | stay within a certain floor type |
 | NONSHOOTABLE        | Vanilla  | mobj is totally non-shootable, but still considered solid |
 | INVULNERABLE        | Vanilla  | mobj is invulnerable |
@@ -134,7 +134,7 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | ICEDAMAGE           | Vanilla  | does ice damage |
 | SEEKERMISSILE       | Modified | is a seeking missile -- in H+H, internally this flag is only checked when reflecting/parrying a missile (i.e. to set its tracer to its target) |
 | REFLECTIVE          | Vanilla  | reflects missiles |
-| ALTSHADOW           | Vanilla  | Actor is translucent, using the alternative translucency percent values (i.e. in GZDoom, HX_ALTSHADOW) -- this flag does not imply projectile inaccuracy or ghost behavior. |
+| ALTSHADOW           | Vanilla  | Actor is translucent, using the alternative translucency percent values (i.e. in ZDoom, HX_ALTSHADOW) -- this flag does not imply projectile inaccuracy or ghost behavior. |
 | ICECORPSE           | Vanilla  | Actor is a frozen corpse |
 | BLASTED             | Vanilla  | Bbject has been blasted by the disc of repulsion; deals damage on impact |
 | DMGIGNORED          | MBF21    | Other things ignore its attacks (archvile) |
@@ -157,8 +157,8 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | NOSPLASH            | New      | cannot trigger terrain splash effects when hitting the ground, regardless of mass |
 | NOMELEEGHOST        | New      | monster is unable to melee attack ghosts. |
 | NOINFIGHTING        | New      | monster will never infight with another monster. |
-| DRAWONAUTOMAP       | New      | actor's sprite is drawn on the automap -- drawing works just like AutomapMarker in GZDoom, effectively |
-| TOGGLEDORMANT       | New      | actor's MF2_DORMANT flag will be toggled when calling Thing Activate/Deactivate on it; previously hardcoded to MF_COUNTKILL -- GZDoom may have different semantics here? |
+| DRAWONAUTOMAP       | New      | actor's sprite is drawn on the automap -- drawing works just like AutomapMarker in ZDoom, effectively |
+| TOGGLEDORMANT       | New      | actor's MF2_DORMANT flag will be toggled when calling Thing Activate/Deactivate on it; previously hardcoded to MF_COUNTKILL -- ZDoom may have different semantics here? |
 | PSETRANS            | New      | draw translucent if the "PSE translucency" menu option is enabled -- this may be N/A for ports unless they want to also add this feature to the menu (it's a quick thing to wire up). |
 | USESPECIAL          | New      | actor will execute its special when the player presses the Use button while facing it. |
 | THRUICECORPSE       | New      | missile will pass through ice corpses |
@@ -239,7 +239,7 @@ Actions (a.k.a. 'codepointers') from the base vanilla games. Unless otherwise me
 | A_BeastAttack              | Heretic            | N/A |
 | A_SnakeAttack              | Heretic            | N/A |
 | A_SnakeAttack2             | Heretic            | N/A |
-| A_LichAttack               | Heretic            | Named A_HeadAttack in vanilla; renamed to avoid ambiguity with Cacodemon attack function (matches GZDoom's naming) |
+| A_LichAttack               | Heretic            | Named A_HeadAttack in vanilla; renamed to avoid ambiguity with Cacodemon attack function (matches ZDoom's naming) |
 | A_HeadIceImpact            | Heretic            | N/A |
 | A_HeadFireGrow             | Heretic            | N/A |
 | A_WhirlwindSeek            | Heretic            | N/A |
@@ -520,8 +520,8 @@ Brand-new actions defined by Raven EX.
 | [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | `TODO-PROP-DESC` |
 | [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | `TODO-PROP-DESC` |
 | [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | `TODO-PROP-DESC` |
-| [A_FlyTarget](#A_FlyTarget)                    | New    | Same behavior as GZDoom's A_FlySearch; name taken from original source code |
-| [A_FlyChase](#A_FlyChase)                      | New    | Same behavior as GZDoom's A_FlyBuzz; name taken from original source code |
+| [A_FlyTarget](#A_FlyTarget)                    | New    | Same behavior as ZDoom's A_FlySearch; name taken from original source code |
+| [A_FlyChase](#A_FlyChase)                      | New    | Same behavior as ZDoom's A_FlyBuzz; name taken from original source code |
 
 ## States
 
@@ -551,7 +551,7 @@ Brand-new actions defined by Raven EX.
 | Name          | Origin | Description |
 |---------------|--------|-------------|
 | SKILL5FAST    | MBF21  | Frame duration is halved on Skill 5 |
-| INTERPOLATE   | New    | Interpolate weapon offsets (i.e. misc1/misc2 fields) -- Note for GZDoom: H+H state offset interpolation is a lerp over the entire duration of the state, not just 1 tic |
+| INTERPOLATE   | New    | Interpolate weapon offsets (i.e. misc1/misc2 fields) -- Note for ZDoom: H+H state offset interpolation is a lerp over the entire duration of the state, not just 1 tic |
 | NOINTERPOLATE | New    | Do not interpolate weapon offsets, even if weapon has the WF_INTERPOLATE flag set |
 
 ## Player class
@@ -792,11 +792,11 @@ Brand-new actions defined by Raven EX.
 | [A_FireMaceEX1](#A_FireMaceEX1)                          | New    | `TODO-ACTION-DESC` |
 | [A_FireMaceEX2](#A_FireMaceEX2)                          | New    | `TODO-ACTION-DESC` |
 | [A_FireTempestWandPL1](#A_FireTempestWandPL1)            | New    | `TODO-ACTION-DESC` |
-| [A_FAxeCheckUp](#A_FAxeCheckUp)                          | New    | Same behavior as GZDoom's function of the same name. |
-| [A_FAxeCheckUpG](#A_FAxeCheckUpG)                        | New    | Same behavior as GZDoom's function of the same name. |
-| [A_FAxeCheckReady](#A_FAxeCheckReady)                    | New    | Same behavior as GZDoom's function of the same name. |
-| [A_FAxeCheckReadyG](#A_FAxeCheckReadyG)                  | New    | Same behavior as GZDoom's function of the same name. |
-| [A_FAxeCheckAtk](#A_FAxeCheckAtk)                        | New    | Same behavior as GZDoom's function of the same name. |
+| [A_FAxeCheckUp](#A_FAxeCheckUp)                          | New    | Same behavior as ZDoom's function of the same name. |
+| [A_FAxeCheckUpG](#A_FAxeCheckUpG)                        | New    | Same behavior as ZDoom's function of the same name. |
+| [A_FAxeCheckReady](#A_FAxeCheckReady)                    | New    | Same behavior as ZDoom's function of the same name. |
+| [A_FAxeCheckReadyG](#A_FAxeCheckReadyG)                  | New    | Same behavior as ZDoom's function of the same name. |
+| [A_FAxeCheckAtk](#A_FAxeCheckAtk)                        | New    | Same behavior as ZDoom's function of the same name. |
 | [A_CMaceAttackEX](#A_CMaceAttackEX)                      | New    | `TODO-ACTION-DESC` |
 | [A_CShieldParry](#A_CShieldParry)                        | New    | `TODO-ACTION-DESC` |
 | [A_CShieldGuard](#A_CShieldGuard)                        | New    | `TODO-ACTION-DESC` |

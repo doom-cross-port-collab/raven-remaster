@@ -1584,6 +1584,43 @@ Brand-new actions defined by Raven EX.
   - Args:
   - Notes:
 
+## Playerclass Action Definitions
+
+- **A_InvulnStandardStart**<a id="A_InvulnStandardStart"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnStandardEnd**<a id="A_InvulnStandardEnd"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnPhasedTick**<a id="A_InvulnPhasedTick"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnPhasedDraw**<a id="A_InvulnPhasedDraw"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnPhasedEnd**<a id="A_InvulnPhasedEnd"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnReflectiveStart**<a id="A_InvulnReflectiveStart"></a>
+  - Description:
+  - Args:
+  - Notes:
+
+- **A_InvulnReflectiveEnd**<a id="A_InvulnReflectiveEnd"></a>
+  - Description:
+  - Args:
+  - Notes:
+
 ## Pickup Action Definitions
 
 - **A_PickupHealth**<a id="A_PickupHealth"></a>

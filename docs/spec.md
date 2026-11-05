@@ -642,7 +642,7 @@ Brand-new actions defined by Raven EX.
 | [A_SuperDemonAttack1](#A_SuperDemonAttack1)    | New    | `TODO-PROP-DESC` |
 | [A_SuperDemonAttack2](#A_SuperDemonAttack2)    | New    | `TODO-PROP-DESC` |
 | [A_CheckThrowBomb2](#A_CheckThrowBomb2)        | New    | `TODO-PROP-DESC` |
-| [A_ShedShardEX](#A_ShedShardEX)                | New    | `TODO-PROP-DESC` |
+| [A_ShedShardEX](#A_ShedShardEX)                | New    | Improved Frost Shards split function. Splits the shard into a number of child shards, with mathematically correct damage distribution. |
 | [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)| New    | New centaur shield behavior. Guards and reflects attacks within a limited angle, instead of a full 360 degrees. |
 | [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)  | New    | New centaur shield behavior. Decides whether to lower the shield and perform a melee attack. |
 | [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)| New    | New centaur shield behavior. Lowers the shield, ending the guard. |
@@ -930,9 +930,9 @@ Brand-new actions defined by Raven EX.
 | [A_CShieldParry](#A_CShieldParry)                        | New    | `TODO-ACTION-DESC` |
 | [A_CShieldGuard](#A_CShieldGuard)                        | New    | `TODO-ACTION-DESC` |
 | [A_CShieldLower](#A_CShieldLower)                        | New    | `TODO-ACTION-DESC` |
-| [A_CStaffDrainEX](#A_CStaffDrainEX)                      | New    | `TODO-ACTION-DESC` |
-| [A_FireConeEX](#A_FireConeEX)                            | New    | `TODO-ACTION-DESC` |
-| [A_MStaffAttackEX](#A_MStaffAttackEX)                    | New    | `TODO-ACTION-DESC` |
+| [A_CStaffDrainEX](#A_CStaffDrainEX)                      | New    | Parameterized Serpent Staff health-drain attack. |
+| [A_FireConeEX](#A_FireConeEX)                            | New    | Parameterized Frost Shards attack. |
+| [A_MStaffAttackEX](#A_MStaffAttackEX)                    | New    | Parameterized Bloodscourge attack. |
 
 ## Ammo
 
@@ -1528,9 +1528,20 @@ Brand-new actions defined by Raven EX.
   - Notes:
 
 - **A_ShedShardEX**<a id="A_ShedShardEX" name="A_ShedShardEX"></a>
-  - `TODO-ACTION-DEF`
-  - Args:
+  - Improved Frost Shards split function. Splits the shard into a number of child shards, with mathematically correct damage distribution.
+  - Args: No args.
+  - Implementation:
+    - This function is based on A_ShedShard, with the following changes:
+      - Reset the calling shard's `damage` back to 1x its normal value (i.e. `damage = info->damage`)
+      - After decrementing the creatively-named `spermcount` variable, calculate child shard `damage` as follows:
+        - if `spermcount == 2`, child shard `damage = info->damage * 4`
+        - if `spermcount == 1`, child shard `damage = info->damage * 3`
+        - if `spermcount == 0`, child shard `damage = info->damage`
+          - These numbers probably look unusual at a glance, but this ensures that the total maximum amount of damage (i.e. `17` times the shard's `info->damage` field) is accounted for during every shard 'generation'. Vanilla's method results in certain generations doing much lower damage than expected, meaning the weapon's attack power gets nerfed weirdly at certain distances.
+      - When child shards are spawned, the child shard copies the `target` field from its parent before P_CheckMissileSpawn is called. This fixes the vanilla bug where you can collide with your own frost shards when running forward with Boots of Speed enbled.
+      - Remove the lines that set `args[0]` on the child shards; replace it instead with the appropriate `damage` value as outlined above.
   - Notes:
+    - The vanilla game's frost shard projectiles used rather convoluted logic to determine the damage of each shard, including a special-case check for `MT_SHARDFX1` in P_DamageMobj. For simplicity, this function simply sets the shard's `damage` field directly.
 
 - **A_CentaurEXGuardRaise**<a id="A_CentaurEXGuardRaise" name="A_CentaurEXGuardRaise"></a>
   - New centaur shield behavior. Guards and reflects attacks within a limited angle, instead of a full 360 degrees.
@@ -1757,7 +1768,7 @@ Brand-new actions defined by Raven EX.
     - `range (uint)`: Range to use for checking if the attack hits an actor
     - `wallrange (uint)`: Range to use for checking if the attack hits a wall
   - Notes:
-    - This function uses Hexen-style [melee targeting](#melee-targeting).
+    - This function uses Hexen-style [melee targeting](#melee-targeting), with a fixed angle of 45 degrees.
     - Base attack damage is randomized between `damagemin` and `damagemax`, inclusive. This is then multiplied by `stundamagemultiplier` if the damaged actor has the [STUNNED](#MF_STUNNED) flag.
     - The vanilla A_CMaceAttack function uses different ranges for checking the distance to a wall versus an actor, hence the two separate args.
 
@@ -1798,19 +1809,53 @@ Brand-new actions defined by Raven EX.
     - See the [Shield Block & Parry](#shield-block--parry) section for additional details
 
 - **A_CStaffDrainEX**<a id="A_CStaffDrainEX" name="A_CStaffDrainEX"></a>
-  - `TODO-ACTION-DEF`
+  - Parameterized Serpent Staff health-drain attack.
   - Args:
+    - `damagemin (uint)`: Minimum attack damage
+    - `damagemax (uint)`: Maximum attack damage
+    - `healthgainpercent (decimal)`: Percentage of damage dealt to heal the player on a successful attack
+    - `meleerange (decimal)`: Attack range
+    - `meleeangle (angle)`: Attack angle, for Hexen-style [melee targeting](#melee-targeting). Value represents the maximum angle from the view direction the attack will land (i.e. total FOV cone is double this value)
+    - `meleestate (state)`: State to jump to if attack is successful
+    - `meleesound (sound)`: Sound to play if attack is successful
   - Notes:
+    - This function uses Hexen-style [melee targeting](#melee-targeting), with customizable `meleeangle`.
+    - Attack damage is randomized between `damagemin` and `damagemax`, inclusive.
+    - Healing amount is the final attack damage multiplied by `healthgainpercent`, rounded down to the nearest integer.
+    - Healing will not increase the player's health beyond 100. This value will ideally be de-hardcoded in a future spec.
+    - Melee state jump & sound will still occur even if the player is at maximum health.
+    - Ammo is consumed (i.e. P_ConsumeAmmo is called) when melee attack is successful.
 
 - **A_FireConeEX**<a id="A_FireConeEX" name="A_FireConeEX"></a>
-  - `TODO-ACTION-DEF`
+  - Parameterized Frost Shards attack.
   - Args:
+    - `type (actor)`: Shard actor to spawn
+    - `sound (sound)`: Sound to play
+    - `meleedamagemin (uint)`: Minimum melee attack damage
+    - `meleedamagemax (uint)`: Maximum melee attack damage
+  - Implementation:
+    - Call P_ConsumeAmmo
+    - Play `sound` on the player actor
+    - Attempt to perform a melee attack; if successful, return early
+    - Otherwise, spawn a player missile of `type` (i.e. via P_SpawnPlayerMissile) and do the following to it:
+      - Set `special1` to `15` (i.e. all four SHARDSPAWN_ constants OR'd together)
+      - Set `special2` to `3` (i.e. number of generations = 3)
+      - Multiply its `damage` by `17` (i.e. the total number of shards in a single Frost Shards attack)
   - Notes:
+    - This function uses Hexen-style [melee targeting](#melee-targeting), with the default MELEERANGE and a fixed angle of 45 degrees.
+    - Ammo is consumed (i.e. P_ConsumeAmmo is called) when calling this function.
+    - This function is designed to be used alongside [A_ShedShardEX](#A_ShedShardEX).
 
 - **A_MStaffAttackEX**<a id="A_MStaffAttackEX" name="A_MStaffAttackEX"></a>
-  - `TODO-ACTION-DEF`
+  - Parameterized Bloodscourge attack.
   - Args:
-  - Notes:
+    - `type1 (actor)`: Type of center missile
+    - `type2 (actor)`: Type of side missiles (two will be spawned)
+    - `angle (angle)`: Angle to fire side missiles at
+    - `sound (sound)`: Sound to play
+    - `usepalette (bool)`: If true, apply the Bloodscourge's special palette flash effect
+  - Notes: 
+    - Ammo is consumed (i.e. P_ConsumeAmmo is called) when calling this function.
 
 ## Playerclass Action Definitions
 

@@ -4,6 +4,19 @@
 
 `TODO-TOC`
 
+[XA] Some rough notes-to-self on Hexen things to prioritize (in no particular order):
+- demon_green `behavior`
+- describe custom states
+- bishop `blur` custom state & de-hardcode
+- fighter punch `fire2` custom state & de-hardcode
+- fighter axe `A_FAxeCheckAtk` de-hardcode (and all the new axe pointers in general tbh)
+- playerclass flechette action
+- playerclass healingradius action
+- weapon AUTOAIMFARTHEST flag
+- weapon INTERPOLATE flag
+- state NOINTERPOLATE flag
+- puff definitions (or at least the `hitsound` property)
+
 ## Game Mechanics
 
 ### Melee Targeting

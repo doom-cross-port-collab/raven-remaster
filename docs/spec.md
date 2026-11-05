@@ -4,6 +4,135 @@
 
 `TODO-TOC`
 
+## Game Mechanics
+
+### Melee Targeting
+
+In Heretic, player melee attacks search for a valid target directly in front of a player, out to a specified range.
+
+In Hexen, player melee attacks search for a valid target within a 90-degree field-of-view, out to the specified range.
+
+In either case, if a valid target is found, the player's view snaps directly to face the target.
+
+Rather than branch by game, the melee targeting method is tied to the action function itself, e.g. [A_GauntletAttackEX](#A_GauntletAttackEX) uses Heretic-style targeting, while [A_CMaceAttackEX](#A_CMaceAttackEX) uses Hexen-style targeting.
+
+### Shield Block & Parry
+
+The cleric now wields a shield alongside his trusty Mace of Contrition. The shield allows for attacks to be blocked, reducing damage. With good timing, you can even reflect projectiles and parry enemy melee attacks, stunning them for a few tics and leaving them wide open for a Mace counterattack.
+
+Centaurs also utilize the new block mechanics: their shield now only protects them from the front, allowing players to circle around them and strike from behind.
+
+This feature has several moving parts. Implementation details don't have to match exactly as long as the user-facing API (i.e. the actions) remains the same. The exact methodology used in Heretic + Hexen is shared here for clarity.
+
+Components:
+- Weapon features:
+  - [Altfire](#Altfire)
+- Weapon actions:
+  - [A_CShieldParry](#A_CShieldParry)
+  - [A_CShieldGuard](#A_CShieldGuard)
+  - [A_CShieldLower](#A_CShieldLower)
+- Actor actions:
+  - [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)
+  - [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)
+  - [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)
+- Internal actor flags:
+  - [SHIELDPARRY](#MF_SHIELDPARRY)
+  - [STUNNED](#MF_STUNNED)
+- Public actor properties:
+  - [stunstate](#stunstate)
+- Internal actor variables:
+  - [guardangle](#guardangle)
+  - [guardpercent](#guardpercent)
+- Internal player variables:
+  - [lastguardtime](#lastguardtime)
+
+#### Altfire
+
+`TODO-SUMMARY -- it's altfire; straightforward, conceptually. still worth explaining some of the weird caveats in H+H's implementation though`
+
+#### SHIELDPARRY flag<a id="MF_SHIELDPARRY" name="MF_SHIELDPARRY"></a>
+
+An actor with the `SHIELDPARRY` flag is considered to be parrying. This has a variety of effects, outlined below.
+
+If a parrying actor is struck by a melee attack, the attacker is punished as follows:
+- If attacker is a player, set `reactiontime` to `18` (i.e. block movement for 18 tics)
+  - This value will ideally be de-hardcoded in a future spec
+- Else if attacker's [`stunstate`](#stunstate) is not null:
+  - Set the [`STUNNED`](#MF_STUNNED) flag
+  - Jump to [`stunstate`](#stunstate)
+- Else attacker jumps to `painstate`
+
+If a parrying actor is struck by a missile (i.e. an actor with the `MISSILE` flag), the missile is reflected back to its owner as follows:
+- If missile's owner is neither a player nor a Hexen class boss (via `behavior` field check), multiply missile's `damage` by `5`
+  - This value will ideally be de-hardcoded in a future spec
+- Reverse the missile's velocity (i.e. send it back the way it came)
+- If missile has the `SEEKERMISSILE` flag set, set its `tracer` to its current `target` (owner)
+- Set the missile's `target` (owner) to the parrying actor
+
+If the attack foils invulnerability (i.e. damage is over 10k or the inflictor has the [`FOILINVUL`](#MF_FOILINVUL) flag), then the attack cannot be parried.
+
+Non-melee hitscan attacks cannot be parried.
+
+When successfully parrying either a melee attacker or a missile, if parrying actor is a player then set their [`lastguardtime`](#lastguardtime) field to the current `leveltime`. This is used by the Cleric shield weapon codepointers to animate the shield sprite "recoiling" when struck.
+
+If a parrying actor is struck by a hitscan attack (melee or ranged), the puff spawning function will behave as if the actor has the `NOBLOOD` flag (e.g. spawn a puff instead of a bloodsplat).
+
+The `SHIELDPARRY` flag is only ever set by the [A_CShieldParry](#A_CShieldParry) weapon function.
+
+The `SHIELDPARRY` flag is cleared if any of the following occurs:
+- The actor dies
+- The actor is a player and their weapon calls either [A_CShieldGuard](#A_CShieldGuard) or [A_CShieldLower](#A_CShieldLower)
+
+#### STUNNED flag<a id="MF_STUNNED" name="MF_STUNNED"></a>
+
+Actors with the `STUNNED` flag take extra damage from [A_CMaceAttackEX](#A_CMaceAttackEX). This is the flag's only effect; all other stun-related behavior is handled via [`stunstate`](#stunstate).
+
+The `STUNNED` flag is only ever set on an actor when melee attackign an actor with the [`SHIELDPARRY`](#MF_SHIELDPARRY) flag.
+
+The `STUNNED` flag is cleared if any of the following occurs:
+- The actor calls A_Chase
+- The actor is put into its `painstate`
+
+#### stunstate
+
+When an actor is [stunned](#MF_STUNNED), it will jump to its `stunstate` if not null.
+
+Heretic + Hexen's gameplay enhancements use this to 'freeze' the actor in place for a few seconds by defining a few long-duration states, but this is simply a convention. The behavior can ultimately be customized via EXDEFS to do something different if desired.
+
+#### guardangle & guardpercent<a id="guardangle" name="guardangle"></a><a id="guardpercent" name="guardpercent"></a>
+
+Actors (mobjs) have two new internal fields: `guardangle` and `guardpercent`.
+
+The `guardangle` field represents a cone, centered at the guarding actor's facing angle. If the field is non-zero and the vector from the guarding actor to the attacking actor falls within the cone, then the attack is guarded.
+
+The `guardangle` field represents the whole arc, i.e. a value of 90 degrees will guard attacks from -45 to 45 degrees relative to the calling actor's facing angle.
+
+Guarded attacks will have their damage _reduced_ by a factor of `guardpercent`, e.g. a value of `0.25` will result in the player taking 75% of the attack's full damage value. A value of `1.0` will completely negate all damage from the attack.
+
+If the attack foils invulnerability (i.e. damage is over 10k or inflictor has the [`FOILINVUL`](#MF_FOILINVUL) flag), then the attack cannot be guarded.
+
+Damaging floors, crushers, poison clouds, and instant-kills cannot be guarded.
+
+When successfully guarding an attack, if guarding actor is a player then set their `lastguardtime` field to the current `leveltime`. This is used by the Cleric shield weapon codepointers to animate the shield visually "recoiling" when struck.
+
+Both `guardangle` and `guardpercent` are set to zero if any of the following occurs:
+- The actor dies
+- The actor calls [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)
+- The actor is a player and their weapon calls [A_CShieldLower](#A_CShieldLower)
+
+#### lastguardtime & Shield Block Offset<a id="lastguardtime" name="lastguardtime"></a><a id="shield-block-offset" name="shield-block-offset"></a>
+
+When a player parryies or guards an attack, the player's `lastguardtime` variable is set to the current `leveltime`. This value is then used to vertically offset the weapon sprite to make it visibly "recoil" when struck.
+
+Both the [A_CShieldParry](#A_CShieldParry) and [A_CShieldBlock](#A_CShieldBlock) functions will update the weapon psprite's Y offset (the `sy` field) according to the following formula:
+```
+psp->sy = WEAPONTOP + (1 << max(0, offsettics - leveltime - lastguardtime + 1))
+```
+
+...where `offsettics` is `4` when updated from [A_CShieldParry](#A_CShieldParry) and `3` when updated from [A_CShieldBlock](#A_CShieldBlock).
+
+In practice, this results in a stronger 'recoil' effect on the weapon sprite when parrying an attack versus blocking it.
+
 ## Actors
 
 Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' in virtually every other game engine.
@@ -163,7 +292,7 @@ Also known as 'things' in DEHACKED, 'mobjs' in the source code, and 'entities' i
 | USESPECIAL          | New      | actor will execute its special when the player presses the Use button while facing it. |
 | THRUICECORPSE       | New      | missile will pass through ice corpses |
 | SHIELDPARRY         | Internal | Not directly exposed to EXDEFS -- Cleric shield parry: actors with a valid stunstate that perform a melee attack against an actor with SHIELDPARRY will jump to their stunstate and have the STUNNED flag set. |
-| STUNNED             | Internal | Not directly exposed to EXDEFS -- Actor is stunned, and takes extra damage from certain melee attacks (e.g. mace). This flag is cleared in A_Chase. |
+| STUNNED             | Internal | Not directly exposed to EXDEFS -- Actor is stunned, and takes extra damage from certain melee attacks (e.g. mace). This flag is cleared whenever A_Chase is called or the actor goes into its pain state. |
 | NOSRCDMGTHRUST      | New      | Do not thrust when damage is dealt by an attack whose source (not inflictor) has this flag; this is set on Hexen playerclasses, to prevent damage-based thrust for all attacks. |
 | FOILINVUL           | New      | missiles with this flag will ignore invulnerability on monsters (but not players) |
 | DONTBLAST           | New      | cannot be blasted by the disc of repulsion |
@@ -514,9 +643,9 @@ Brand-new actions defined by Raven EX.
 | [A_SuperDemonAttack2](#A_SuperDemonAttack2)    | New    | `TODO-PROP-DESC` |
 | [A_CheckThrowBomb2](#A_CheckThrowBomb2)        | New    | `TODO-PROP-DESC` |
 | [A_ShedShardEX](#A_ShedShardEX)                | New    | `TODO-PROP-DESC` |
-| [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)| New    | `TODO-PROP-DESC` |
-| [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)  | New    | `TODO-PROP-DESC` |
-| [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)| New    | `TODO-PROP-DESC` |
+| [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)| New    | New centaur shield behavior. Guards and reflects attacks within a limited angle, instead of a full 360 degrees. |
+| [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)  | New    | New centaur shield behavior. Decides whether to lower the shield and perform a melee attack. |
+| [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)| New    | New centaur shield behavior. Lowers the shield, ending the guard. |
 | [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | `TODO-PROP-DESC` |
 | [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | `TODO-PROP-DESC` |
 | [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | `TODO-PROP-DESC` |
@@ -1404,19 +1533,37 @@ Brand-new actions defined by Raven EX.
   - Notes:
 
 - **A_CentaurEXGuardRaise**<a id="A_CentaurEXGuardRaise" name="A_CentaurEXGuardRaise"></a>
-  - `TODO-ACTION-DEF`
+  - New centaur shield behavior. Guards and reflects attacks within a limited angle, instead of a full 360 degrees.
   - Args:
+    - `guardangle (angle)`: Angle to guard attacks from, relative to actor's current facing angle
+    - `guardpercent (decimal)`: Damage absorption percent, from 0.0 to 1.0
+  - Implementation:
+    - Set the calling player actor's [`guardangle`](#guardangle) and [`guardpercent`](#guardpercent) fields to the values provided via args
+    - Set the [REFLECTIVE](#MF_REFLECTIVE) flag
+    - Call `A_FaceTarget`
   - Notes:
+    - See the [Shield Block & Parry](#shield-block--parry) section for additional details
+    - Damage is _reduced_ by a factor of `guardpercent`, e.g. a value of `0.25` will result in the guarding actor taking 75% of the attack's full damage value.
 
 - **A_CentaurEXGuardHold**<a id="A_CentaurEXGuardHold" name="A_CentaurEXGuardHold"></a>
-  - `TODO-ACTION-DEF`
+  - New centaur shield behavior. Decides whether to lower the shield and perform a melee attack.
   - Args:
-  - Notes:
+    - `meleechance (uint)`: Chance (out of 255) to initiate a melee attack.
+  - Implementation:
+    - Check if `target` is within melee range
+    - Check if `P_Random() < meleechance`
+    - If both of the above are true, do the following:
+      - Call [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)
+      - Jump to `meleestate`
 
 - **A_CentaurEXGuardLower**<a id="A_CentaurEXGuardLower" name="A_CentaurEXGuardLower"></a>
-  - `TODO-ACTION-DEF`
-  - Args:
+  - New centaur shield behavior. Lowers the shield, ending the guard.
+  - No args.
+  - Implementation:
+    - Remove the [REFLECTIVE](#MF_REFLECTIVE) flag
+    - Zero out the [`guardangle`](#guardangle) and [`guardpercent`](#guardpercent) fields
   - Notes:
+    - See the [Shield Block & Parry](#shield-block--parry) section for additional details
 
 - **A_CentaurAttack2EX**<a id="A_CentaurAttack2EX" name="A_CentaurAttack2EX"></a>
   - `TODO-ACTION-DEF`
@@ -1601,24 +1748,54 @@ Brand-new actions defined by Raven EX.
   - Notes:
 
 - **A_CMaceAttackEX**<a id="A_CMaceAttackEX" name="A_CMaceAttackEX"></a>
-  - `TODO-ACTION-DEF`
+  - Parameterized Mace of Contrition attack. Inflicts bonus damage on actors stunned by a shield parry.
   - Args:
+    - `damagemin (uint)`: Minimum attack damage
+    - `damagemax (uint)`: Maximum attack damage
+    - `stundamagemultiplier (decimal)`: Damage multiplier to apply to actors with the [STUNNED](#MF_STUNNED) flag
+    - `pufftype (puff)`: [Puff](#puff) to use
+    - `range (uint)`: Range to use for checking if the attack hits an actor
+    - `wallrange (uint)`: Range to use for checking if the attack hits a wall
   - Notes:
+    - This function uses Hexen-style [melee targeting](#melee-targeting).
+    - Base attack damage is randomized between `damagemin` and `damagemax`, inclusive. This is then multiplied by `stundamagemultiplier` if the damaged actor has the [STUNNED](#MF_STUNNED) flag.
+    - The vanilla A_CMaceAttack function uses different ranges for checking the distance to a wall versus an actor, hence the two separate args.
 
 - **A_CShieldParry**<a id="A_CShieldParry" name="A_CShieldParry"></a>
-  - `TODO-ACTION-DEF`
+  - Cleric shield parry. Stuns melee attackers and reflects projectiles.
   - Args:
+    - `parrystate (state)`: State to jump to on a successful parry
+    - `parrysound (sound)`: Sound to play on a successful parry
+  - Implementation:
+    - Set the [SHIELDPARRY](MF_SHIELDPARRY) flag on the calling player actor
+    - Update the [Weapon Y Offset](#shield-block-offset) using an `offsettics` value of `4`
+    - If a parry or guard occurred in the previous frame (i.e. the player's `lastguardtime` is within 1 tic of the current `leveltime`), play `parrysound` and jump to `parrystate` (if not null)
   - Notes:
+    - See the [Shield Block & Parry](#shield-block--parry) section for additional details
 
 - **A_CShieldGuard**<a id="A_CShieldGuard" name="A_CShieldGuard"></a>
-  - `TODO-ACTION-DEF`
+  - Cleric shield block. Reduces damage from attacks within a certain angle.
   - Args:
+    - `guardangle (angle)`: Angle to guard attacks from, relative to actor's current facing angle
+    - `guardpercent (decimal)`: Damage absorption percent, from 0.0 to 1.0
+    - `guardsound (sound)`: Sound to play on a successful guard
+  - Implementation:
+    - Remove the [SHIELDPARRY](MF_SHIELDPARRY) flag from the calling player actor
+    - Set the calling player actor's [`guardangle`](#guardangle) and [`guardpercent`](#guardpercent) fields to the values provided via args
+    - Update the [Weapon Y Offset](#shield-block-offset) using an `offsettics` value of `3`
+    - If a parry or guard occurred in the previous frame (i.e. the calling player's `lastguardtime` is within 1 tic of the current `leveltime`), play `guardsound`
   - Notes:
+    - See the [Shield Block & Parry](#shield-block--parry) section for additional details
+    - Damage is _reduced_ by a factor of `guardpercent`, e.g. a value of `0.25` will result in the guarding actor taking 75% of the attack's full damage value.
 
 - **A_CShieldLower**<a id="A_CShieldLower" name="A_CShieldLower"></a>
-  - `TODO-ACTION-DEF`
-  - Args:
+  - Ends cleric shield parry & block behavior.
+  - No Args.
+  - Implementation:
+    - Remove the [SHIELDPARRY](MF_SHIELDPARRY) flag from the calling player 
+    - Zero out the calling player actor's [`guardangle`](#guardangle) and [`guardpercent`](#guardpercent) fields
   - Notes:
+    - See the [Shield Block & Parry](#shield-block--parry) section for additional details
 
 - **A_CStaffDrainEX**<a id="A_CStaffDrainEX" name="A_CStaffDrainEX"></a>
   - `TODO-ACTION-DEF`

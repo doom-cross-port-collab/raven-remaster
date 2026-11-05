@@ -646,9 +646,9 @@ Brand-new actions defined by Raven EX.
 | [A_CentaurEXGuardRaise](#A_CentaurEXGuardRaise)| New    | New centaur shield behavior. Guards and reflects attacks within a limited angle, instead of a full 360 degrees. |
 | [A_CentaurEXGuardHold](#A_CentaurEXGuardHold)  | New    | New centaur shield behavior. Decides whether to lower the shield and perform a melee attack. |
 | [A_CentaurEXGuardLower](#A_CentaurEXGuardLower)| New    | New centaur shield behavior. Lowers the shield, ending the guard. |
-| [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | `TODO-PROP-DESC` |
-| [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | `TODO-PROP-DESC` |
-| [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | `TODO-PROP-DESC` |
+| [A_CentaurAttack2EX](#A_CentaurAttack2EX)      | New    | Improved Slaughtaur projectile attack. If player is within melee range, attempt to melee attack the player instead. |
+| [A_SerpentHumpDecideEX](#A_SerpentHumpDecideEX)| New    | Fixed version of A_SerpentHumpDecide. Checks if its `target` is in sight before attempting a ranged attack. |
+| [A_BishopSpawnBlurEX](#A_BishopSpawnBlurEX)    | New    | Fixed version of A_BishopSpawnBlur. Checks if its `target` is in sight before attempting a ranged attack. |
 | [A_FlyTarget](#A_FlyTarget)                    | New    | Same behavior as ZDoom's A_FlySearch; name taken from original source code |
 | [A_FlyChase](#A_FlyChase)                      | New    | Same behavior as ZDoom's A_FlyBuzz; name taken from original source code |
 
@@ -926,10 +926,10 @@ Brand-new actions defined by Raven EX.
 | [A_FAxeCheckReady](#A_FAxeCheckReady)                    | New    | Same behavior as ZDoom's function of the same name. |
 | [A_FAxeCheckReadyG](#A_FAxeCheckReadyG)                  | New    | Same behavior as ZDoom's function of the same name. |
 | [A_FAxeCheckAtk](#A_FAxeCheckAtk)                        | New    | Same behavior as ZDoom's function of the same name. |
-| [A_CMaceAttackEX](#A_CMaceAttackEX)                      | New    | `TODO-ACTION-DESC` |
-| [A_CShieldParry](#A_CShieldParry)                        | New    | `TODO-ACTION-DESC` |
-| [A_CShieldGuard](#A_CShieldGuard)                        | New    | `TODO-ACTION-DESC` |
-| [A_CShieldLower](#A_CShieldLower)                        | New    | `TODO-ACTION-DESC` |
+| [A_CMaceAttackEX](#A_CMaceAttackEX)                      | New    | Parameterized Mace of Contrition attack. Inflicts bonus damage on actors stunned by a shield parry. |
+| [A_CShieldParry](#A_CShieldParry)                        | New    | Cleric shield parry. Stuns melee attackers and reflects projectiles. |
+| [A_CShieldGuard](#A_CShieldGuard)                        | New    | Cleric shield block. Reduces damage from attacks within a certain angle. |
+| [A_CShieldLower](#A_CShieldLower)                        | New    | Ends cleric shield parry & block behavior. |
 | [A_CStaffDrainEX](#A_CStaffDrainEX)                      | New    | Parameterized Serpent Staff health-drain attack. |
 | [A_FireConeEX](#A_FireConeEX)                            | New    | Parameterized Frost Shards attack. |
 | [A_MStaffAttackEX](#A_MStaffAttackEX)                    | New    | Parameterized Bloodscourge attack. |
@@ -1577,19 +1577,36 @@ Brand-new actions defined by Raven EX.
     - See the [Shield Block & Parry](#shield-block--parry) section for additional details
 
 - **A_CentaurAttack2EX**<a id="A_CentaurAttack2EX" name="A_CentaurAttack2EX"></a>
-  - `TODO-ACTION-DEF`
+  - Improved Slaughtaur projectile attack. If player is within melee range, attempt to melee attack the player instead.
   - Args:
-  - Notes:
+    - `type (actor)`: Missile actor to spawn
+    - `sound (sound)`: Sound to play on the calling actor
+    - `meleerange (decimal)`: Melee attack range; if zero, use the actor's `meleerange` property instead.
+    - `meleestate (state)`: Melee state to jump to; if null, use the actor's `meleestate` property instead.
+  - Implementation:
+    - Check if `target` is within `meleerange`; if so, jump to `meleestate` and return.
+    - Otherwise, spawn a missile of `type` and play `sound` on the actor.
 
 - **A_SerpentHumpDecideEX**<a id="A_SerpentHumpDecideEX" name="A_SerpentHumpDecideEX"></a>
-  - `TODO-ACTION-DEF`
-  - Args:
-  - Notes:
+  - Fixed version of A_SerpentHumpDecide. Checks if its `target` is in sight before attempting a ranged attack.
+  - No args.
+  - Implementation:
+    - This function de-hardcodes a few things:
+      - Check if the actor has a `missilestate` defined to determine if this is a Stalker Leader, instead of checking if the actor type ID is `MT_SERPENTLEADER`
+      - Use `meleestate` instead of `S_SERPENT_SURFACE1`
+      - Use "Hump" [`customstate`](#customstate) instead of `S_SERPENT_HUMP1`
+    - Add a call to `P_CheckSight` (to determine if the actor's `target` is in sight) to each conditional that results in a state jump to `meleestate` if true.
+      - This fixes the vanilla bug where Stalker Leaders will continually fire projectiles even when the player is out of sight.
 
 - **A_BishopSpawnBlurEX**<a id="A_BishopSpawnBlurEX" name="A_BishopSpawnBlurEX"></a>
-  - `TODO-ACTION-DEF`
-  - Args:
-  - Notes:
+  - Fixed version of A_BishopSpawnBlur. Checks if its `target` is in sight before attempting a ranged attack.
+  - No args.
+  - Implementation:
+    - This function de-hardcodes a few things:
+      - Use `seestate` instead of `S_BISHOP_WALK1`
+      - Use `missilestate` instead of `S_BISHOP_ATK1`
+    - Just before the conditional that checks whether to jump to `seestate` or `missilestate`, add a call to `P_CheckSight` (to determine if the actor's `target` is in sight); if it returns `false` (or `target` is null), always jump to `seestate`.
+      - This fixes the vanilla bug where Bishops will continually fire projectiles even when the player is out of sight.
 
 - **A_FlyTarget**<a id="A_FlyTarget" name="A_FlyTarget"></a>
   - `TODO-ACTION-DEF`
